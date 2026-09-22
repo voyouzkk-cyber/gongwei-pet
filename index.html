@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Q3_经销商跟进_最终版.xlsx</title>
+<style>
+:root{
+  --ink:#141414;--paper:#e6e6e6;--mid:#8a8a8a;--dim:#5c5c5c;--desk:#7a7a7a;
+  --xl:#217346;--xl2:#1e6b42;--gm:#d93025;--gm2:#1a73e8;--line:#d0d0d0;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--desk);color:var(--ink);
+  font-family:"Songti SC","SimSun","Noto Serif SC",serif}
+button,[role=button]{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.5}
+#desk{position:relative;width:100%;height:100%;background-color:#7a7a7a;background-size:cover;background-position:center;background-repeat:no-repeat}
+/* Windows 风格壁纸（自绘，非官方图） */
+body[data-wp=grid] #desk{
+  background-color:#7a7a7a;
+  background-image:linear-gradient(90deg,rgba(0,0,0,.06) 1px,transparent 1px),linear-gradient(rgba(0,0,0,.06) 1px,transparent 1px);
+  background-size:8px 8px}
+body[data-wp=bliss] #desk{
+  background-color:#4a90c8;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a62b0'/%3E%3Cstop offset='.55' stop-color='%237eb8e8'/%3E%3Cstop offset='.7' stop-color='%23c8e8f6'/%3E%3C/linearGradient%3E%3ClinearGradient id='h' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2370c04a'/%3E%3Cstop offset='1' stop-color='%232f7a22'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23s)'/%3E%3Cellipse cx='320' cy='150' rx='190' ry='48' fill='%23fff' opacity='.5'/%3E%3Cellipse cx='1180' cy='88' rx='150' ry='38' fill='%23fff' opacity='.32'/%3E%3Cpath d='M0 540C300 410 560 500 860 455C1180 405 1400 380 1600 420V900H0Z' fill='url(%23h)'/%3E%3Cpath d='M0 670C420 590 900 740 1600 610V900H0Z' fill='%23388628'/%3E%3C/svg%3E")}
+body[data-wp=luna] #desk{background:#3a6ea5}
+body[data-wp=win95] #desk{background:#008080}
+body[data-wp=win7] #desk{
+  background-color:#0b3d55;
+  background-image:radial-gradient(ellipse 90% 55% at 12% -10%,#9fe8ff 0%,transparent 55%),radial-gradient(ellipse 70% 50% at 92% 110%,#082536 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 72% 28%,#2a9a6a 0%,transparent 62%),linear-gradient(165deg,#06344f 0%,#1a6a88 38%,#86c49a 70%,#d4edc8 100%)}
+body[data-wp=win11] #desk{
+  background-color:#d9e4f2;
+  background-image:radial-gradient(circle at 18% 86%,#6b8eef 0%,transparent 42%),radial-gradient(circle at 82% 16%,#d7b3ee 0%,transparent 38%),radial-gradient(circle at 48% 48%,#f4ead2 0%,#d5e6f6 58%)}
+body[data-wp=night] #desk{
+  background-color:#0b1020;
+  background-image:radial-gradient(1px 1px at 12% 22%,#fff,transparent),radial-gradient(1px 1px at 40% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 18%,#fff,transparent),radial-gradient(1px 1px at 88% 72%,#cde,transparent),radial-gradient(ellipse at 50% 120%,#1a2a55,transparent 50%),linear-gradient(#070b16,#152044)}
+body[data-wp=custom] #desk{background-color:#333;background-size:cover;background-position:center}
+.d-ico{text-shadow:0 1px 3px #000,1px 1px 0 #333}
+body[data-wp=win11] .credit{color:#222;text-shadow:0 1px 0 #fff}
+body[data-wp=win95] #taskbar{background:#c0c0c0;color:#111;border-top:2px solid #fff}
+body[data-wp=win95] #start-btn{background:#c0c0c0;color:#111;font-weight:700;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 #404040}
+body[data-wp=bliss] #taskbar,body[data-wp=luna] #taskbar{background:linear-gradient(#3f7adf,#1a4cb8);border-top:1px solid #0831a5;color:#fff}
+body[data-wp=bliss] #start-btn,body[data-wp=luna] #start-btn{background:linear-gradient(#5cbf5c,#2e8a2e);border:1px solid #146014;border-radius:12px 12px 4px 4px;color:#fff;font-weight:700}
+body[data-wp=win7] #taskbar{background:linear-gradient(#5a6a7a,#1c2834);border-top:1px solid #9ab}
+body[data-wp=win11] #taskbar{background:rgba(243,243,243,.88);color:#222;border-top:1px solid #ddd}
+body[data-wp=win11] #start-btn{background:#fff;color:#111;border:1px solid #ccc;border-radius:4px}
+body[data-wp=night] #taskbar{background:#111827;border-top:1px solid #334}
+#startMenu{position:absolute;left:4px;bottom:26px;z-index:60;display:none;min-width:180px;background:#e8e8e8;border:2px solid #111;box-shadow:4px 4px 0 #111;padding:4px}
+#startMenu.open{display:block}
+#startMenu button{display:block;width:100%;text-align:left;background:none;border:0;padding:8px 10px;font:13px Tahoma,"Microsoft YaHei",sans-serif}
+#startMenu button:hover{background:#111;color:#eee}
+.wp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.wp-thumb{height:56px;border:2px solid #111;padding:0;font-size:11px;color:#fff;text-shadow:0 1px 2px #000;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
+.wp-thumb.on{outline:2px solid #111;outline-offset:2px}
+.wp-thumb[data-wp=bliss]{background:linear-gradient(#4a90c8 58%,#5aa63a 58%)}
+.wp-thumb[data-wp=luna]{background:#3a6ea5}
+.wp-thumb[data-wp=win95]{background:#008080}
+.wp-thumb[data-wp=win7]{background:linear-gradient(#1a6a88,#86c49a)}
+.wp-thumb[data-wp=win11]{background:linear-gradient(#d7b3ee,#d5e6f6);color:#222;text-shadow:none}
+.wp-thumb[data-wp=grid]{background:#7a7a7a;background-image:linear-gradient(90deg,rgba(0,0,0,.15) 1px,transparent 1px),linear-gradient(rgba(0,0,0,.15) 1px,transparent 1px);background-size:6px 6px}
+.wp-thumb[data-wp=night]{background:#0b1020}
+.wp-file{display:block;margin:8px 0;font-size:13px}
+.wp-file input{display:none}
+.sex-pick{display:flex;gap:8px;margin:8px 0 12px}
+.sex-pick button{flex:1}
+.sex-pick button.on{background:#111;color:#eee;box-shadow:none}
+#startPet{display:flex;justify-content:center;margin:4px 0 8px}
+#startPet svg{width:110px;height:auto}
+.desk-icons{position:absolute;top:12px;left:10px;display:flex;flex-direction:column;gap:14px;width:72px;z-index:2}
+.d-ico{background:none;border:1px solid transparent;color:#f2f2f2;font-size:11px;text-align:center;padding:4px 2px;text-shadow:1px 1px 0 #333}
+.d-ico:hover{border-color:#111;background:rgba(0,0,0,.18)}
+.d-ico i{display:block;width:32px;height:28px;margin:0 auto 4px;image-rendering:pixelated;
+  background:#d9d9d9;box-shadow:inset 0 0 0 2px #111, 2px 2px 0 #111;position:relative}
+.d-ico i:after{content:"";position:absolute;inset:6px 7px;background:#111}
+.d-ico.pc i:after{inset:5px 6px 8px;box-shadow:0 10px 0 0 #111}
+.d-ico.xls i{background:#cfcfcf}.d-ico.xls i:after{inset:4px 5px;background:repeating-linear-gradient(#111,#111 2px,transparent 2px,transparent 5px)}
+.d-ico.mail i:after{inset:7px 5px 5px;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+.credit{position:fixed;left:8px;bottom:28px;z-index:40;font-size:10px;color:#efefef;text-shadow:1px 1px 0 #333;
+  pointer-events:none;user-select:none;max-width:calc(100% - 16px)}
+#taskbar{position:absolute;left:0;right:0;bottom:0;height:24px;background:#3d3d3d;color:#eee;display:flex;align-items:center;
+  gap:6px;padding:0 6px;z-index:50;font-family:Tahoma,"Microsoft YaHei",sans-serif;font-size:11px;border-top:1px solid #111}
+#start-btn{background:#2b2b2b;color:#eee;border:1px solid #111;padding:1px 8px}
+.tb-win{flex:1;max-width:220px;overflow:hidden;white-space:nowrap;opacity:.85}
+#clock{margin-left:auto;padding:0 6px}
+
+/* 右下角全高坞：从右下角铺满屏幕右侧 */
+#dock{position:absolute;top:8px;right:8px;bottom:28px;z-index:12;display:flex;flex-direction:column-reverse;align-items:stretch;gap:8px;
+  width:min(420px,calc(100vw - 88px))}
+.pet-stage{display:flex;align-items:flex-end;justify-content:flex-end;gap:10px;cursor:pointer;flex-shrink:0;padding:0 4px 2px;position:relative;min-height:250px}
+.pet-mover{transition:transform 1.4s ease}
+.pet{filter:drop-shadow(0 10px 12px rgba(20,40,70,.28));background:none;box-shadow:none;padding:0}
+.pet svg{display:block;animation:idle 2.6s ease-in-out infinite;transform-origin:50% 100%}
+.pet.bounce{animation:hop .32s ease}
+.pet.bounce svg{animation:none}
+.pet.sleep svg{animation:none;filter:brightness(.92)}
+.pet.sick{filter:hue-rotate(72deg) saturate(.75)}
+.say{position:absolute;right:12px;bottom:230px;background:#fff;border:2px solid #222;border-radius:14px 14px 4px 14px;padding:6px 10px;font-size:12px;max-width:150px;z-index:6;display:none;line-height:1.4;box-shadow:3px 3px 0 rgba(0,0,0,.2)}
+.poops{position:absolute;left:0;right:0;bottom:2px;height:36px;pointer-events:none;z-index:7}
+.poop{position:absolute;bottom:0;width:30px;height:26px;pointer-events:auto;cursor:pointer;background:none;border:0;padding:0}
+.poop:hover{transform:scale(1.1)}
+.rps{display:flex;gap:8px;margin:10px 0}
+.rps button{flex:1;min-height:48px;font-size:16px}
+#bathBox{position:relative;height:180px;background:#c5e8f7;border:2px solid #111;margin:8px 0;overflow:hidden}
+.bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.75);border:2px solid #7ec8e8;cursor:pointer}
+.st-line{font-size:11px;color:#444;margin:0 0 6px}
+body.boss .say,body.boss .poops{display:none!important}
+@keyframes hop{50%{transform:translateY(-14px)}}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.age-chip{background:#111;color:#eee;font-family:Tahoma,"Microsoft YaHei",sans-serif;font-size:11px;padding:3px 6px;
+  border:1px solid #eee}
+.panel{background:#e8e8e8;border:2px solid #111;box-shadow:4px 4px 0 #111;width:100%;flex:1;min-height:0;overflow:auto}
+.hd{background:#111;color:#eee;font-family:Tahoma,"Microsoft YaHei",sans-serif;font-size:12px;padding:4px 6px;
+  display:flex;align-items:center;gap:6px;cursor:grab;user-select:none}
+.hd .ttl{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hd button{width:18px;height:16px;background:#e8e8e8;border:1px solid #111;color:#111;font-size:11px;line-height:12px;padding:0;font-weight:700}
+.bd{padding:8px}
+.hud-row{display:flex;justify-content:space-between;font-size:12px;font-family:Tahoma,"Microsoft YaHei",sans-serif;margin-bottom:6px}
+.age-block{margin:6px 0 8px}
+.age-lab{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+.bar{height:10px;background:#fff;border:1px solid #111;box-shadow:inset 1px 1px 0 #bbb}
+.bar i{display:block;height:100%;background:#111;width:0}
+.bar.low i{background:#555}
+.bar.crit i{background:#000;outline:1px dashed #fff;outline-offset:-2px}
+.need-row{display:flex;align-items:center;gap:6px;font-size:12px;margin:3px 0}
+.need-row span{width:48px;flex-shrink:0}
+.need-row .bar{flex:1;min-width:0}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.acts button,.type-box button,.modal button,.start-card button,.quiz button,.px-btn{
+  background:#e8e8e8;border:2px solid #111;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 #9a9a9a;
+  padding:8px 6px;font-size:13px;color:#111;font-family:inherit}
+.acts button.hi{background:#111;color:#eee;box-shadow:none}
+.type-box{margin-top:8px;background:#fff;border:1px solid #111;padding:8px}
+.word{font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:700;letter-spacing:.02em}
+.zh{font-size:12px;color:#555;margin-left:6px}
+.type-box input,.start-card input{width:100%;margin:6px 0;padding:8px;font-size:16px;border:1px solid #111;font-family:Consolas,"Courier New",monospace}
+.quiz{display:grid;gap:6px;margin-top:6px}
+.word-card{width:100%;text-align:left;margin:6px 0;min-height:72px}
+.word-card .word{display:block;font-size:22px}
+.word-card .zh{display:block;margin:6px 0 0;font-size:14px;color:#333}
+.card-hint{display:block;margin-top:6px;font-size:11px;color:#666}
+.know-row{display:flex;gap:8px;margin-top:6px}
+.know-row button{flex:1;min-height:40px}
+#btnKnow{background:#111;color:#eee;box-shadow:none}
+.hint{font-size:11px;color:#444;margin-top:6px;line-height:1.45}
+.toast{position:absolute;right:12px;bottom:120px;background:#111;color:#eee;border:1px solid #eee;padding:7px 10px;z-index:90;
+  font-size:12px;max-width:min(280px,80%);display:none;font-family:Tahoma,"Microsoft YaHei",sans-serif}
+.stage-pop{position:absolute;left:50%;top:24%;transform:translateX(-50%);background:#e8e8e8;border:2px solid #111;
+  box-shadow:4px 4px 0 #111;padding:12px 16px;z-index:85;display:none;text-align:center;min-width:220px}
+.modal,.start-mask{position:absolute;inset:0;display:none;z-index:70;align-items:center;justify-content:center;background:rgba(20,20,20,.45)}
+.start-mask{display:flex}
+body.play .start-mask{display:none !important}
+body.boss .start-mask{display:none !important}
+.start-card,.modal-card{width:min(400px,calc(100% - 24px));background:#e8e8e8;border:2px solid #111;box-shadow:6px 6px 0 #111;padding:16px 18px}
+.start-card h1,.modal-card h2{margin:0 0 8px;font-size:20px}
+.start-card p,.modal-card p{font-size:14px;line-height:1.55;margin:0 0 10px}
+.modal.open{display:flex}
+.evt-opts{display:flex;flex-direction:column;gap:6px}
+.panel.hidden,.pet-stage.boss-hide{display:none}
+body.boss #desk .desk-icons,body.boss #dock,body.boss #taskbar,body.boss #startMenu,body.boss .toast,body.boss .stage-pop{display:none!important}
+body.boss .credit{color:#666;text-shadow:none;bottom:8px;z-index:320}
+
+/* ===== Excel ===== */
+#boss{position:fixed;inset:0;z-index:200;display:none;flex-direction:column;background:#fff;
+  font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;color:#212121}
+#boss.open{display:flex}
+.winbar{height:32px;display:flex;align-items:center;gap:8px;padding:0 8px;color:#fff;font-size:12px;flex-shrink:0}
+#boss.skin-excel .winbar{background:var(--xl)}
+#boss.skin-mail .winbar{background:#fff;color:#5f6368;border-bottom:1px solid #dadce0}
+#boss.skin-code .winbar{background:#3c3c3c}
+.win-ico{width:16px;height:16px;background:#fff;opacity:.9}
+#boss.skin-excel .win-ico{clip-path:polygon(10% 10%,90% 10%,90% 90%,10% 90%);background:#fff}
+.win-fn{opacity:.92;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.win-search{margin-left:12px;flex:0 1 220px;height:22px;border:0;border-radius:4px;padding:0 8px;font-size:12px;background:rgba(255,255,255,.2);color:#fff}
+#boss.skin-mail .win-search{background:#f1f3f4;color:#333;flex:1;max-width:640px;height:40px;border-radius:8px}
+.win-acts{margin-left:auto;display:flex}
+.win-acts b{width:40px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:400;cursor:pointer}
+.win-acts b:hover{background:rgba(255,255,255,.15)}
+.win-acts b.x:hover{background:#e81123}
+.ribbon{background:#f3f2f1;border-bottom:1px solid #d0d0d0;flex-shrink:0}
+.rtabs{display:flex;gap:0;padding:0 8px;font-size:12px}
+.rtabs span{padding:7px 12px;cursor:default}
+.rtabs span.on{background:#fff;border:1px solid #d0d0d0;border-bottom-color:#fff;font-weight:600;color:var(--xl)}
+.rbtns{display:flex;gap:10px;padding:6px 10px 8px;font-size:11px;color:#444}
+.rbtns i{display:inline-block;padding:4px 8px;border:1px solid transparent}
+.rbtns i:hover{border-color:#c8c8c8;background:#fff}
+.fxbar{display:flex;align-items:center;gap:6px;padding:4px 8px;border-bottom:1px solid #d0d0d0;background:#fff;flex-shrink:0}
+.fx-name{width:72px;height:22px;border:1px solid #d0d0d0;font-size:12px;text-align:center}
+.fx-lab{font-style:italic;font-family:serif;font-size:16px;color:#666;width:24px;text-align:center}
+.fxbar input{flex:1;height:22px;border:1px solid #d0d0d0;padding:0 6px;font-size:13px;font-family:Calibri,"Segoe UI",sans-serif}
+.ribbon,.fxbar,.sheets,.winbar,.boss-tb{flex:0 0 auto}
+.xl-wrap{flex:1 1 auto;height:0;min-height:0;overflow:auto;background:#fff;position:relative;display:none}
+#boss.skin-excel .xl-wrap{display:block}
+table.xl{border-collapse:collapse;font-size:12px;min-width:100%}
+table.xl th,table.xl td{border:1px solid #d0d0d0;padding:0;height:22px}
+table.xl th{background:#f8f8f8;color:#666;font-weight:600;text-align:center;min-width:28px;position:sticky;top:0;z-index:1}
+table.xl th.rowh{min-width:36px;position:sticky;left:0;z-index:2}
+table.xl td{min-width:92px;padding:0 4px;white-space:nowrap;max-width:180px;overflow:hidden;outline:none}
+table.xl td.sel{outline:2px solid var(--xl);outline-offset:-2px;background:#e6f4ea}
+table.xl td.lock{background:#fafafa;color:#555}
+table.xl td.goal{background:#fff7cc}
+table.xl tr.head td{background:#f3f2f1;font-weight:600;text-align:center}
+.sheets{display:flex;align-items:center;gap:4px;background:#f3f2f1;border-top:1px solid #d0d0d0;padding:0 8px;height:28px;font-size:12px;flex-shrink:0}
+.sheets em{font-style:normal;padding:4px 12px;border-top:2px solid var(--xl);background:#fff}
+.sheets span{padding:4px 10px;color:#666}
+.stat{margin-left:auto;color:#666;font-size:11px}
+.boss-tb{height:40px;background:#1c1c1c;border-top:1px solid #000;display:flex;align-items:center;gap:2px;padding:0 6px;flex-shrink:0}
+.boss-tb button{width:52px;height:40px;border:0;border-bottom:3px solid transparent;background:transparent;font-size:10px;color:#ddd}
+.boss-tb button.on{background:#333;border-bottom-color:#4cc2ff}
+.ghost{position:absolute;right:4px;top:4px;width:12px;height:12px;opacity:.04;background:#000;border:0;z-index:5}
+
+/* ===== Gmail ===== */
+.gm,.codeui{display:none !important}
+#boss.skin-mail .ribbon,#boss.skin-mail .fxbar,#boss.skin-mail .xl-wrap,#boss.skin-mail .sheets,
+#boss.skin-code .ribbon,#boss.skin-code .fxbar,#boss.skin-code .xl-wrap,#boss.skin-code .sheets{display:none !important}
+#boss.skin-mail .gm{display:flex !important;flex:1 1 auto;height:0;min-height:0;flex-direction:column;background:#f6f8fc}
+#boss.skin-code .codeui{display:flex !important;flex:1 1 auto;height:0;min-height:0;flex-direction:column}
+.gm-body{flex:1 1 auto;height:0;min-height:0;display:flex;align-items:stretch}
+.gm-side{width:220px;padding:12px 8px;flex-shrink:0}
+.gm-compose{width:100%;background:var(--gm);color:#fff;border:0;border-radius:24px;padding:12px 18px;font-size:14px;font-weight:600;margin-bottom:12px}
+.gm-nav{display:flex;flex-direction:column;gap:2px}
+.gm-nav button{text-align:left;background:none;border:0;padding:8px 16px;border-radius:0 16px 16px 0;font-size:14px;color:#333}
+.gm-nav button.on{background:#fce8e6;color:#d93025;font-weight:700}
+.gm-main{flex:1;display:flex;flex-direction:column;min-width:0;border-left:1px solid #eee}
+.gm-list{flex:1;overflow:auto}
+.gm-row{display:grid;grid-template-columns:28px 160px 1fr 64px;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid #f0f0f0;font-size:13px;cursor:pointer}
+.gm-row:hover{background:#f5f5f5}
+.gm-row.unread{font-weight:700;background:#fff}
+.gm-row .from{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gm-row .subj{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#222}
+.gm-row .when{color:#888;text-align:right;font-size:12px}
+.gm-read{display:none;flex-direction:column;flex:1;min-height:0}
+.gm-read.open{display:flex}
+.gm-list.hide{display:none}
+.gm-read h3{margin:0;padding:16px 20px 8px;font-size:22px;font-weight:400}
+.gm-meta{padding:0 20px 12px;font-size:13px;color:#555}
+.gm-bodytxt{padding:8px 20px;font-size:14px;line-height:1.6;flex:1;overflow:auto}
+.gm-reply{margin:8px 20px 16px;border:1px solid #dadce0;border-radius:8px;padding:8px}
+.gm-reply textarea{width:100%;border:0;min-height:72px;resize:vertical;font-family:inherit;font-size:14px;outline:none}
+.gm-reply .row{display:flex;justify-content:flex-end;gap:8px}
+.gm-send{background:var(--gm2);color:#fff;border:0;border-radius:4px;padding:8px 18px;font-size:13px}
+.gm-float{position:absolute;right:24px;bottom:52px;width:min(420px,calc(100% - 40px));background:#fff;
+  border-radius:8px 8px 0 0;box-shadow:0 8px 28px rgba(0,0,0,.28);display:none;flex-direction:column;z-index:8;max-height:70%}
+.gm-float.open{display:flex}
+.gm-float .ft{background:#404040;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;font-size:13px;border-radius:8px 8px 0 0}
+.gm-float .ft button{background:none;border:0;color:#fff;font-size:16px}
+.gm-float input,.gm-float .ce{border:0;border-bottom:1px solid #eee;padding:8px 12px;width:100%;font-size:13px;font-family:inherit}
+.gm-float .ce{min-height:140px;outline:none}
+.gm-float .fb{padding:8px 12px}
+
+/* VS Code-ish editable */
+.codeui{background:#1e1e1e;color:#d4d4d4;font-family:Consolas,"Courier New",monospace}
+.code-tab{background:#2d2d2d;padding:8px 12px;font-size:12px;color:#ccc}
+.codeui textarea{flex:1;width:100%;background:#1e1e1e;color:#d4d4d4;border:0;padding:12px;font:13px/1.5 Consolas,"Courier New",monospace;resize:none;outline:none}
+
+@media(max-width:640px){
+  .desk-icons{transform:scale(.9);transform-origin:top left}
+  .acts button,.quiz button,.gm-compose,.gm-send{min-height:44px}
+  .gm-side{width:56px;padding:8px 4px}
+  .gm-nav{display:none}
+  #dock{left:6px;right:6px;width:auto;top:6px}
+}
+@media(prefers-reduced-motion:reduce){.pet.bounce,.pet svg{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="desk">
+  <div class="desk-icons">
+    <button class="d-ico pc" data-act="pc" type="button"><i></i>此电脑</button>
+    <button class="d-ico xls" data-act="xls" type="button"><i></i>周报.xlsx</button>
+    <button class="d-ico mail" data-act="mail" type="button"><i></i>邮件</button>
+    <button class="d-ico" data-act="about" type="button"><i></i>关于.txt</button>
+    <button class="d-ico" data-act="wall" type="button"><i></i>显示属性</button>
+  </div>
+  <div id="dock">
+    <div class="panel" id="panel">
+      <div class="hd" id="adHd"><span class="ttl" id="adTitle">桌面助手</span>
+        <button type="button" id="btnMin" title="收起">_</button>
+        <button type="button" id="btnClose" title="关闭">X</button>
+      </div>
+      <div class="bd">
+        <div class="hud-row"><b id="petNameHud">弹弹</b><span id="stageHud">幼年</span><span id="coinHud">金币 0</span></div>
+        <div class="st-line" id="stLine"></div>
+        <div class="age-block">
+          <div class="age-lab"><span id="ageText">0岁 · 第 0 天</span><span id="ageNext">少年 7岁</span></div>
+          <div class="bar" id="ageBar"><i id="ageBarI"></i></div>
+        </div>
+        <div id="needs"></div>
+        <div class="acts" id="acts"></div>
+        <div class="type-box" id="typeBox">
+          <label>背单词（雅思向）<small class="zh" id="wordCount">已背 0 词</small></label>
+          <button type="button" class="word-card" id="wordCard">
+            <span class="word" id="wordEn">analyze</span>
+            <small class="zh" id="wordZh" hidden>分析</small>
+            <span class="card-hint" id="cardHint">点卡片看释义</span>
+          </button>
+          <div class="know-row">
+            <button type="button" id="btnKnow">认识</button>
+            <button type="button" id="btnForget">不认识</button>
+          </div>
+          <button type="button" id="btnSkip">跳过（不计数）</button>
+          <div class="hint">每过 1 个词加快成长，并回一点饥饿/清洁/心情/健康/精力。1 / J 认识，2 / K 不认识。</div>
+        </div>
+        <div class="hint" id="focusHint"></div>
+      </div>
+    </div>
+    <div class="pet-stage" id="petStage" title="点我">
+      <div class="say" id="say"></div>
+      <div class="poops" id="poops"></div>
+      <div class="age-chip" id="ageChip">0岁</div>
+      <div class="pet-mover" id="petMover"><div class="pet" id="pet"></div></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <div class="stage-pop" id="stagePop"></div>
+  <div class="credit" id="credit">© Peter Zhang · 仅供个人娱乐，禁止去署名后商用</div>
+  <div id="startMenu">
+    <button type="button" data-sm="assist">桌面助手</button>
+    <button type="button" data-sm="wall">显示属性</button>
+    <button type="button" data-sm="about">关于</button>
+  </div>
+  <div id="taskbar">
+    <button id="start-btn" type="button">开始</button>
+    <div class="tb-win" id="tbWin">桌面助手</div>
+    <span id="clock">--:--</span>
+  </div>
+</div>
+<div class="start-mask" id="startMask">
+  <div class="start-card">
+    <h1>桌面助手</h1>
+    <p>右下角一只小狗或小猫（QQ 宠物风）。喂它、清便便、洗澡、猜拳、睡觉；不管它会脏会病。背单词加快长大（按词数）。Esc 假工作。</p>
+    <div id="startPet"></div>
+    <label>形象</label>
+    <div class="sex-pick" id="startSex">
+      <button type="button" data-sex="dog" class="on">小狗</button>
+      <button type="button" data-sex="cat">小猫</button>
+    </div>
+    <label>给它起名</label>
+    <input id="nameInput" maxlength="12" value="弹弹"/>
+    <button type="button" id="btnStart">启动助手</button>
+    <p class="hint" style="margin-top:10px">Esc：假工作界面（可打字编辑）。再按 Esc 回来。</p>
+    <p class="hint">© Peter Zhang · 仅供个人娱乐，禁止去署名后商用</p>
+  </div>
+</div>
+<div class="modal" id="aboutModal">
+  <div class="modal-card">
+    <h2>关于</h2>
+    <p><b>弹窗工位宠</b>是单机摸鱼养成。宠物是右下角的小狗或小猫；Esc 打开可编辑的假表格 / 邮件。</p>
+    <p>禁止去除署名后重新发布，禁止用于商业盈利。不采集隐私，默认不联网。存档仅在本机 localStorage。</p>
+    <p>作者：Peter Zhang。可将本 HTML 另存到本地，双击即可离线玩。</p>
+    <p><a id="dlLink" href="/gongwei-pet.html" download="gongwei-pet.html">下载离线 HTML</a></p>
+    <button type="button" id="btnAboutClose">关闭</button>
+  </div>
+</div>
+<div class="modal" id="wallModal">
+  <div class="modal-card">
+    <h2>显示属性</h2>
+    <p>网页读不到你电脑的系统壁纸。可选 Windows 风格预设，或从本机选一张图（把桌面壁纸文件选进来即可），只存在这台电脑，不上传。</p>
+    <div class="wp-grid">
+      <button class="wp-thumb" type="button" data-wp="bliss">XP 蓝天</button>
+      <button class="wp-thumb" type="button" data-wp="luna">XP 蓝</button>
+      <button class="wp-thumb" type="button" data-wp="win95">95 青绿</button>
+      <button class="wp-thumb" type="button" data-wp="win7">Win7 光晕</button>
+      <button class="wp-thumb" type="button" data-wp="win11">Win11 绽放</button>
+      <button class="wp-thumb" type="button" data-wp="night">深空</button>
+      <button class="wp-thumb" type="button" data-wp="grid">网格</button>
+    </div>
+    <label class="wp-file px-btn">使用本机图片…<input id="wpFile" type="file" accept="image/*"/></label>
+    <p style="margin:12px 0 0;font-size:14px">形象</p>
+    <div class="sex-pick" id="wallSex">
+      <button type="button" data-sex="dog">小狗</button>
+      <button type="button" data-sex="cat">小猫</button>
+    </div>
+    <button type="button" id="btnWallClose">关闭</button>
+  </div>
+</div>
+<div class="modal" id="eventModal">
+  <div class="modal-card">
+    <h2 id="evtTitle">事件</h2>
+    <p id="evtBody"></p>
+    <div class="evt-opts" id="evtOpts"></div>
+  </div>
+</div>
+<div class="modal" id="shopModal">
+  <div class="modal-card">
+    <h2>小卖部</h2>
+    <p>打字挣钱买吃的。幼年饼干免费。便便要自己点掉。</p>
+    <div class="evt-opts" id="shopOpts"></div>
+    <button type="button" id="btnShopX">关闭</button>
+  </div>
+</div>
+<div class="modal" id="playModal">
+  <div class="modal-card">
+    <h2 id="playTitle">猜拳</h2>
+    <p id="playBody">石头剪刀布。赢了有金币和心情，像以前 QQ 宠物的小游戏。</p>
+    <div class="rps" id="rps">
+      <button type="button" data-rps="0">石头</button>
+      <button type="button" data-rps="1">剪刀</button>
+      <button type="button" data-rps="2">布</button>
+    </div>
+    <div id="bathBox" hidden></div>
+    <p id="playResult"></p>
+    <button type="button" id="btnPlayX">关闭</button>
+  </div>
+</div>
+
+<div id="boss">
+  <button class="ghost" type="button" id="bossGhost" title="回游戏"></button>
+  <div class="winbar">
+    <span class="win-ico"></span>
+    <span class="win-fn" id="bossFile">Q3_经销商跟进_最终版.xlsx</span>
+    <input class="win-search" id="bossSearch" placeholder="搜索"/>
+    <span class="win-acts"><b id="bossMin">—</b><b>□</b><b class="x" id="bossX">×</b></span>
+  </div>
+  <div class="ribbon" id="ribbon">
+    <div class="rtabs"><span>文件</span><span class="on">开始</span><span>插入</span><span>页面布局</span><span>公式</span><span>数据</span><span>审阅</span><span>视图</span></div>
+    <div class="rbtns"><i>粘贴</i><i>剪切</i><i>复制</i><i>加粗</i><i>对齐</i><i>筛选</i><i>求和</i><i>格式刷</i></div>
+  </div>
+  <div class="fxbar" id="fxbar">
+    <input class="fx-name" id="fxName" value="E2" readonly/>
+    <span class="fx-lab">fx</span>
+    <input id="fxInput" autocomplete="off" spellcheck="false" placeholder="在此编辑单元格"/>
+  </div>
+  <div class="xl-wrap" id="xlWrap"><table class="xl" id="xlTable"></table></div>
+  <div class="sheets" id="sheets"><em>跟进表</em><span>Sheet2</span><span>培训词表</span><span class="stat" id="xlStat">就绪</span></div>
+
+  <div class="gm" id="gm">
+    <div class="gm-body">
+      <div class="gm-side">
+        <button class="gm-compose" type="button" id="gmCompose">写邮件</button>
+        <div class="gm-nav">
+          <button class="on" type="button" id="gmInboxBtn">收件箱</button>
+          <button type="button">已加星标</button>
+          <button type="button">已发送</button>
+          <button type="button">草稿</button>
+        </div>
+      </div>
+      <div class="gm-main">
+        <div class="gm-list" id="gmList"></div>
+        <div class="gm-read" id="gmRead">
+          <h3 id="gmSub"></h3>
+          <div class="gm-meta" id="gmMeta"></div>
+          <div class="gm-bodytxt" id="gmBody"></div>
+          <div class="gm-reply">
+            <textarea id="gmReply" placeholder="撰写回复…"></textarea>
+            <div class="row"><button class="gm-send" type="button" id="gmSend">发送</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gm-float" id="gmFloat">
+      <div class="ft"><span>新邮件</span><button type="button" id="gmFloatX">×</button></div>
+      <input id="gmTo" placeholder="收件人"/>
+      <input id="gmSubj" placeholder="主题"/>
+      <div class="ce" id="gmDraft" contenteditable="true"></div>
+      <div class="fb"><button class="gm-send" type="button" id="gmSendNew">发送</button></div>
+    </div>
+  </div>
+
+  <div class="codeui" id="codeui">
+    <div class="code-tab">followup.ts — app</div>
+    <textarea id="codeEdit" spellcheck="false"></textarea>
+  </div>
+
+  <div class="boss-tb">
+    <button type="button" data-skin="excel" class="on">Excel</button>
+    <button type="button" data-skin="mail">邮件</button>
+    <button type="button" data-skin="code">代码</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* 可调：需求衰减 / 挂机金币 / 背单词奖励 / 天数与岁数 */
+  var CONFIG = {
+    SAVE_KEY: "gongwei-ad-pet-v1",
+    SAVE_VERSION: 4,
+    SIM_DT: 0.05,
+    DT_CAP: 0.1,
+    daysPerYear: 10,          /* 一岁 = 多少游戏日 */
+    secPerDay: 14,            /* 挂机多少秒过 1 天 */
+    typeDays: 1.2,            /* 兼容旧字段 */
+    wordDays: 1.2,            /* 每过 1 个词加快多少天（不论认识与否） */
+    knowGold: 8,              /* 点「认识」给的金币（幼年不发） */
+    wordCare: {               /* 背词回补全条：认识多、不认识少 */
+      know: { hunger: 5, clean: 4, mood: 7, health: 5, energy: 5 },
+      forget: { hunger: 2, clean: 2, mood: 3, health: 2, energy: 2 }
+    },
+    wordBond: 1.2,
+    ageTeen: 7,
+    ageAdult: 18,
+    needOk: 42,
+    needLow: 28,
+    needCrit: 16,
+    decay: {
+      /* 每秒掉多少；大约 8～15 分钟一条从满到空，挂机摸鱼不至于立刻饿死 */
+      child: { hunger: 0.24, clean: 0.08, mood: 0.16, health: 0.03, energy: 0.13 },
+      teen: { hunger: 0.20, clean: 0.09, mood: 0.18, health: 0.03, energy: 0.14 },
+      adult: { hunger: 0.12, clean: 0.08, mood: 0.18, health: 0.025, energy: 0.13 }
+    },
+    idleGoldPerSec: { child: 0, teen: 0.32, adult: 0.5 },
+    typeBase: 5,
+    typePerLetter: 0.7,
+    typeWrong: 1,
+    care: { hunger: 34, clean: 36, mood: 22, health: 48, energy: 40 },
+    costs: {
+      hunger: { child: 0, teen: 3, adult: 5 }
+    },
+    careDays: 0.08,
+    closeComfort: 10,
+    pooEvery: 78,
+    sayEvery: 9,
+    maxPoo: 3,
+    patCD: 1.1
+  };
+
+  var WORDS = [
+    ["analyze","分析"],["approach","方法"],["assess","评估"],["assume","假设"],["authority","权威"],
+    ["available","可用的"],["benefit","益处"],["concept","概念"],["consist","由…组成"],["constitute","构成"],
+    ["context","语境"],["contract","合同"],["create","创造"],["define","定义"],["derive","源自"],
+    ["distribute","分发"],["economy","经济"],["environment","环境"],["establish","建立"],["estimate","估计"],
+    ["evidence","证据"],["export","出口"],["factor","因素"],["finance","金融"],["formula","公式"],
+    ["function","功能"],["identify","识别"],["income","收入"],["indicate","表明"],["individual","个体"],
+    ["interpret","解释"],["involve","涉及"],["issue","议题"],["labour","劳动"],["legal","合法的"],
+    ["legislate","立法"],["major","主要的"],["method","方法"],["occur","发生"],["percent","百分比"],
+    ["period","时期"],["policy","政策"],["principle","原则"],["proceed","继续进行"],["process","过程"],
+    ["require","需要"],["research","研究"],["respond","回应"],["role","角色"],["section","部分"],
+    ["sector","部门"],["significant","显著的"],["similar","相似的"],["source","来源"],["specific","具体的"],
+    ["structure","结构"],["theory","理论"],["vary","变化"],["achieve","达成"],["acquire","获得"],
+    ["affect","影响"],["appropriate","恰当的"],["aspect","方面"],["assist","协助"],["category","类别"],
+    ["chapter","章节"],["commission","委托"],["community","社区"],["complex","复杂的"],["compute","计算"],
+    ["conclude","得出结论"],["conduct","实施"],["construct","建造"],["consume","消耗"],["credit","信用"],
+    ["culture","文化"],["design","设计"],["distinct","明显不同的"],["element","要素"],["evaluate","评价"],
+    ["feature","特征"],["final","最终的"],["focus","焦点"],["impact","冲击"],["institute","机构"],
+    ["invest","投资"],["item","项目"],["journal","期刊"],["maintain","维持"],["normal","正常的"],
+    ["obtain","获得"],["participate","参与"],["perceive","察觉"],["positive","积极的"],["potential","潜在的"],
+    ["previous","先前的"],["primary","首要的"],["purchase","购买"],["range","范围"],["region","地区"],
+    ["regulate","调控"],["relevant","相关的"],["reside","居住"],["resource","资源"],["restrict","限制"],
+    ["secure","确保"],["seek","寻求"],["select","选择"],["site","地点"],["strategy","策略"],
+    ["survey","调查"],["text","文本"],["tradition","传统"],["transfer","转移"],["alternative","备选"],
+    ["circumstance","情形"],["comment","评论"],["compensate","补偿"],["component","组件"],["consent","同意"],
+    ["considerable","相当大的"],["constant","持续的"],["constrain","约束"],["contribute","贡献"],["coordinate","协调"],
+    ["core","核心"],["corporate","公司的"],["correspond","对应"],["criteria","标准"],["deduce","推断"],
+    ["demonstrate","证明"],["document","文件"],["dominate","主导"],["emphasis","强调"],["ensure","确保"],
+    ["exclude","排除"],["framework","框架"],["fund","资金"],["illustrate","阐明"],["imply","暗示"],
+    ["initial","最初的"],["instance","实例"],["interact","互动"],["justify","证明合理"],["layer","层次"],
+    ["link","关联"],["locate","定位"],["minor","次要的"],["outcome","结果"],["partner","伙伴"],
+    ["philosophy","哲学"],["physical","身体的"],["proportion","比例"],["publish","发表"],["react","反应"],
+    ["register","登记"],["rely","依赖"],["remove","移除"],["scheme","方案"],["sequence","序列"],
+    ["shift","转变"],["specify","明确说明"],["sufficient","足够的"],["task","任务"],["technical","技术的"],
+    ["technique","技巧"],["technology","技术"],["valid","有效的"],["volume","容量"],["access","途径"],
+    ["adequate","充足的"],["annual","每年的"],["apparent","显而易见的"],["approximate","大约的"],["attitude","态度"],
+    ["attribute","归因"],["civil","公民的"],["code","规范"],["commit","承诺"],["communicate","沟通"],
+    ["concentrate","集中"],["confer","商议"],["contrast","对比"],["cycle","循环"],["debate","辩论"],
+    ["despite","尽管"],["dimension","维度"],["domestic","国内的"],["emerge","出现"],["error","误差"],
+    ["goal","目标"],["grant","授予"],["hence","因此"],["hypothesis","假说"],["implement","实施"],
+    ["impose","强加"],["integrate","整合"],["internal","内部的"],["investigate","调查"],["mechanism","机制"],
+    ["obvious","明显的"],["occupy","占据"],["option","选项"],["output","产出"],["overall","总体的"],
+    ["parallel","平行的"],["parameter","参数"],["phase","阶段"],["predict","预测"],["principal","主要的"],
+    ["prior","在先的"],["professional","专业的"],["project","项目"],["promote","促进"],["regime","体制"],
+    ["resolve","解决"],["retain","保留"],["series","系列"],["statistic","统计数据"],["status","地位"],
+    ["stress","压力"],["subsequent","随后的"],["summary","摘要"],["undertake","承担"],["adjust","调整"],
+    ["allocate","分配"],["clarify","澄清"],["colleague","同事"],["compile","汇编"],["comprehensive","全面的"],
+    ["confirm","确认"],["conflict","冲突"],["consult","咨询"],["convert","转换"],["decade","十年"],
+    ["decline","下降"],["draft","草稿"],["enable","使能够"],["energy","能源"],["enforce","执行"],
+    ["enhance","增强"],["entity","实体"],["equivalent","等价的"],["evolve","演变"],["expand","扩展"],
+    ["external","外部的"],["facilitate","促进"],["fundamental","根本的"],["generate","生成"],["guarantee","保证"],
+    ["hierarchy","等级制度"],["identical","相同的"],["incentive","激励"],["index","指数"],["inevitable","不可避免的"],
+    ["infer","推断"],["infrastructure","基础设施"],["innovate","创新"],["insight","洞察"],["inspect","检查"],
+    ["instruct","指导"],["integral","不可或缺的"],["interval","间隔"],["intervene","干预"],["isolate","隔离"],
+    ["logic","逻辑"],["manifest","表明"],["margin","利润率"],["mature","成熟的"],["mediate","调解"],
+    ["modify","修改"],["monitor","监测"],["motive","动机"],["mutual","相互的"],["norm","规范"],
+    ["notion","观念"],["objective","目标"],["offset","抵消"],["ongoing","持续的"],["orient","使适应"],
+    ["overlap","重叠"],["overseas","海外的"],["paradigm","范式"],["paragraph","段落"],["passive","被动的"],
+    ["persist","持续"],["perspective","视角"],["phenomenon","现象"],["portion","部分"],["practitioner","从业者"],
+    ["precise","精确的"],["predominant","占主导的"],["preliminary","初步的"],["presume","假定"],["priority","优先级"],
+    ["procedure","程序"],["prohibit","禁止"],["prospect","前景"],["protocol","协议"],["psychology","心理学"],
+    ["pursue","追求"],["qualitative","定性的"],["quote","引用"],["random","随机的"],["ratio","比率"],
+    ["rational","理性的"],["recover","恢复"],["refine","精炼"],["reinforce","加强"],["reject","拒绝"],
+    ["release","发布"],["restore","修复"],["restrain","克制"],["reveal","揭示"],["revenue","营收"],
+    ["reverse","相反的"],["revise","修订"],["rigid","僵硬的"],["scenario","情景"],["schedule","日程"],
+    ["scope","范围"],["simulate","模拟"],["sole","唯一的"],["sphere","领域"],["stable","稳定的"],
+    ["straightforward","直截了当"],["submit","提交"],["subsidy","补贴"],["substitute","代替"],["successor","继任者"],
+    ["supplement","补充"],["survive","生存"],["suspend","暂停"],["sustain","维持"],["symbol","象征"],
+    ["target","目标"],["temporary","暂时的"],["terminate","终止"],["theme","主题"],["thereby","从而"],
+    ["thesis","论文"],["topic","话题"],["trace","追踪"],["transform","转变"],["transmit","传输"],
+    ["trend","趋势"],["trigger","触发"],["ultimate","最终的"],["undergo","经历"],["uniform","统一的"],
+    ["unique","独特的"],["utilise","利用"],["vehicle","车辆"],["version","版本"],["via","经由"],
+    ["violate","违反"],["virtual","虚拟的"],["visible","可见的"],["vision","愿景"],["visual","视觉的"],
+    ["voluntary","自愿的"],["welfare","福利"],["whereas","然而"],["widespread","广泛的"],["clause","条款"],
+    ["collapse","崩溃"],["complement","补充"],["comprise","包含"],["contact","联系"],["contemporary","当代的"],
+    ["couple","一对"],["discrete","分离的"],["equate","等同"],["expose","使暴露"],["generation","一代"],
+    ["globe","全球"],["grade","等级"],["ideology","意识形态"],["image","形象"],["immigration","移民"],
+    ["incidence","发生率"],["incline","倾向于"],["incorporate","纳入"],["induce","引起"],["inhibit","抑制"],
+    ["insert","插入"],["intelligent","聪明的"],["intense","强烈的"],["intermediate","中间的"],["intrinsic","内在的"],
+    ["invoke","援引"],["joint","联合的"],["levy","征收"],["liberal","开明的"],["licence","执照"],
+    ["likewise","同样地"],["manual","手册"],["medium","媒介"],["mental","心理的"],["nuclear","核心的"],
+    ["odd","奇数的"],["panel","小组"],["plus","外加"],["pose","造成"],["precede","先于"],
+    ["prime","首要"],["publication","出版物"],["radical","激进的"],["relax","放松"],["reluctance","不情愿"],
+    ["revolution","革命"],["route","路线"],["so-called","所谓的"],["somewhat","有点"],["style","风格"],
+    ["sum","总和"],["tape","磁带"],["team","团队"],["tense","紧张的"],["transit","运输"],
+    ["transport","交通"],["underlie","构成基础"],["unify","统一"],["volume","卷"]
+  ];
+
+  var STAGE_LABEL = { child: "幼年", teen: "少年", adult: "成年" };
+  var NEED_LABEL = {
+    hunger: "饥饿", clean: "清洁", mood: "心情", health: "健康", energy: "精力",
+    thirst: "口渴", comfort: "安慰", pocket: "零花", fun: "玩具", wealth: "金钱", company: "陪伴"
+  };
+  var SAY = {
+    hungry: ["肚子咕咕叫……", "想吃饼干！", "喂我嘛～"],
+    dirty: ["好臭哦！", "便便便便！", "要洗澡啦"],
+    bored: ["陪我玩嘛～", "好无聊哦", "猜拳！猜拳！"],
+    sick: ["头好晕……", "要吃药……", "不想动"],
+    sleep: ["Zzz……", "困了啦", "再睡五分钟"],
+    happy: ["嘿嘿！", "最喜欢你了", "今天也要摸鱼"],
+    pat: ["好痒哈哈", "再摸摸～", "嘿嘿被发现了"],
+    poo: ["我拉了！", "快收拾啦！"],
+    eat: ["好好吃！", "还要！", "满足～"],
+    bath: ["哇凉快！", "泡泡！", "香香的"],
+    wake: ["嗯……醒了", "继续摸鱼！"]
+  };
+  var SHOP = [
+    { id: "cookie", name: "小饼干", desc: "充饥，吃完可能要上厕所", cost: { child: 0, teen: 3, adult: 4 }, hunger: 28, mood: 4 },
+    { id: "meal", name: "便当", desc: "饱腹又开心", cost: { child: 4, teen: 8, adult: 10 }, hunger: 48, mood: 8 },
+    { id: "toy", name: "小皮球", desc: "提高心情和亲密度", cost: { child: 5, teen: 8, adult: 9 }, mood: 30, bond: 6 },
+    { id: "med", name: "退烧药", desc: "生病时吃", cost: { child: 6, teen: 10, adult: 12 }, health: 55 }
+  ];
+  var EVENTS = [
+    { title: "周末短途", body: "朋友发来消息：附近新开了一家展，来不来？", options: [
+      { t: "去看展（花 28 金币）", cost: 28, company: 36, wealth: -8, msg: "看完展在门口吃了碗面，像短暂活过。" },
+      { t: "改成公园骑行（花 16 金币）", cost: 16, company: 22, msg: "风把周报吹出脑海半小时。" },
+      { t: "不去，补觉", cost: 0, company: -6, comfort: 20, msg: "睡到下午三点。宠物也打了个哈欠。" }
+    ]},
+    { title: "朋友约晚饭", body: "大学同学突然出现在聊天列表顶部：今晚火锅？", options: [
+      { t: "去（花 22 金币）", cost: 22, company: 32, msg: "聊到店员开始扫地。值。" },
+      { t: "改天，先发红包（花 8 金币）", cost: 8, company: 10, msg: "关系还在，胃空着。" },
+      { t: "说在赶材料", cost: 0, company: -10, wealth: 4, msg: "材料并没有变短，只是借口变长。" }
+    ]},
+    { title: "部门团建预告", body: "群里投票：密室 / 吃饭不说话 / 取消团建。", options: [
+      { t: "投密室并真去（花 18 金币）", cost: 18, company: 28, fun: 12, msg: "同事发现你会拆锁。" },
+      { t: "只吃饭（花 12 金币）", cost: 12, company: 16, msg: "合照里你举着杯子，眼神在想周报。" },
+      { t: "投票取消", cost: 0, company: -8, wealth: 6, msg: "你赢了安静，输了话题。" }
+    ]},
+    { title: "帮朋友搬家", body: "电梯坏了，四楼，纸箱写着「不碎物品（其实碎）」。", options: [
+      { t: "去搬（花 6 金币打车）", cost: 6, company: 30, hunger: -12, msg: "腰酸，但对方请了烧烤。" },
+      { t: "出钱叫车（花 20 金币）", cost: 20, company: 14, msg: "友情用金币垫了一下。" },
+      { t: "今晚真的走不开", cost: 0, company: -12, msg: "下一次开口会更难。" }
+    ]},
+    { title: "加班还是夜路", body: "九点。文档还差一段「本周亮点」。", options: [
+      { t: "写完再走（不花钱）", cost: 0, wealth: 10, company: -8, msg: "亮点是你还在。" },
+      { t: "出门吹风（花 4 金币）", cost: 4, company: 12, comfort: 10, msg: "糖让大脑以为生活甜了一点。" },
+      { t: "带它去便利店（花 9 金币）", cost: 9, company: 18, hunger: 16, msg: "关东煮蒸汽糊了屏幕。很值。" }
+    ]}
+  ];
+
+  var XL_COLS = 8;
+  var XL_ROWS = 22;
+  var colL = function (i) { return String.fromCharCode(65 + i); };
+  var $ = function (id) { return document.getElementById(id); };
+  var clamp = function (n, a, b) { return Math.max(a, Math.min(b, n)); };
+  var isCoarse = function () { return window.matchMedia("(pointer: coarse)").matches; };
+
+  function defaultState() {
+    return {
+      version: CONFIG.SAVE_VERSION,
+      petName: "弹弹",
+      stage: "child",
+      ageDays: 0,
+      coins: 0,
+      needs: { hunger: 72, thirst: 70, comfort: 80, pocket: 55, fun: 50, wealth: 45, company: 50, clean: 80, mood: 74, health: 90, energy: 82 },
+      bond: 6,
+      poops: [],
+      sleeping: false,
+      sick: false,
+      digest: 0,
+      wordIndex: 0,
+      typedOk: 0,
+      typedBad: 0,
+      wordsTotal: 0,
+      closeCount: 0,
+      bossSkin: "excel",
+      started: false,
+      playSec: 0,
+      collapsed: false,
+      sheet: null,
+      xlRow: 2,
+      xlSel: "E2",
+      mails: null,
+      draft: { to: "", subject: "", body: "" },
+      codeText: "",
+      wallpaper: "bliss",
+      gender: "boy",
+      species: "dog"
+    };
+  }
+
+  var S = defaultState();
+  var boss = false;
+  var focused = document.hasFocus();
+  var acc = 0;
+  var lastTs = performance.now();
+  var saveT = 0;
+  var toastT = 0;
+  var wordObj = WORDS[0];
+  var dayAcc = 0;
+  var xlEditing = false;
+  var sayT = 4;
+  var pooT = 20;
+  var walkT = 0;
+  var lastPat = 0;
+  var bathLeft = 0;
+
+  function ageYears() { return S.ageDays / CONFIG.daysPerYear; }
+  function yearInt() { return Math.floor(ageYears()); }
+  function dayInYear() { return Math.floor(S.ageDays % CONFIG.daysPerYear); }
+  function stageByAge(y) {
+    if (y >= CONFIG.ageAdult) return "adult";
+    if (y >= CONFIG.ageTeen) return "teen";
+    return "child";
+  }
+  function seedSheet() {
+    if (S.sheet && S.sheet._ok) return;
+    S.sheet = {
+      _ok: 1,
+      A1: "区域", B1: "客户", C1: "跟进状态", D1: "中文释义", E1: "标准术语", F1: "负责人", G1: "日期", H1: "备注",
+      A2: "华东", B2: "晨光骑行", C2: "已报价", F2: "张工", G2: "09-18",
+      A3: "华南", B3: "湾区单车", C3: "样品在途", F3: "刘工", G3: "09-19",
+      A4: "华北", B4: "燕郊车行", C4: "合同草稿", F4: "周工", G4: "09-20",
+      A5: "北美", B5: "Lake Trail", C5: "邮件未回", F5: "Wang", G5: "09-21",
+      A8: "合计跟进", B8: "4", C8: "进行中"
+    };
+    S.xlRow = 2;
+    placeTerm();
+  }
+  function seedMails() {
+    if (S.mails && S.mails.length) return;
+    S.mails = [
+      { id: 1, from: "培训部", sub: "本周术语核对", body: "", unread: true, when: "10:14" },
+      { id: 2, from: "周报机器人", sub: "Q3 经销商跟进 · 请过目", body: "附件已生成本地副本。请在表格 E 列补全标准术语。\n\n——系统邮件，请勿回复。", unread: true, when: "09:02" },
+      { id: 3, from: "HR 共享", sub: "入职材料补交提醒", body: "如已提交请忽略。本邮件可直接在正文区做笔记。", unread: false, when: "昨天" },
+      { id: 4, from: "会议室", sub: "已预订 3F-02  14:00–15:00", body: "主题：渠道参数对齐。可在此写会前问题。", unread: false, when: "昨天" },
+      { id: 5, from: "IT 服务台", sub: "密码将于 14 天后过期", body: "请登录内网自助修改。本环境为本地演示，不会联网。", unread: false, when: "周一" }
+    ];
+    paintMailTerm();
+  }
+  function placeTerm() {
+    var r = S.xlRow;
+    S.sheet["D" + r] = wordObj[1] + " / " + wordObj[0];
+    if (!S.sheet["E" + r]) S.sheet["E" + r] = "";
+    S.sheet["H" + r] = S.sheet["H" + r] || "待录入";
+    S.xlSel = "E" + r;
+  }
+  function paintMailTerm() {
+    if (!S.mails || !S.mails[0]) return;
+    S.mails[0].sub = "本周词表复习：" + wordObj[0];
+    S.mails[0].body = "同事你好：\n\n本周词表请直接点回复表示「认识」即可，按词数统计，无需拼写。\n\n    " + wordObj[0] + "  " + wordObj[1] + "\n\n培训部";
+    S.mails[0].unread = true;
+  }
+  function migrate(raw) {
+    var d = defaultState();
+    if (!raw || typeof raw !== "object") return d;
+    var s = Object.assign({}, d, raw);
+    s.needs = Object.assign({}, d.needs, raw.needs || {});
+    s.draft = Object.assign({}, d.draft, raw.draft || {});
+    if (s.ageDays == null && typeof raw.growth === "number") {
+      var g = raw.growth, y;
+      if (g < 90) y = CONFIG.ageTeen * (g / 90);
+      else if (g < 240) y = CONFIG.ageTeen + (CONFIG.ageAdult - CONFIG.ageTeen) * ((g - 90) / 150);
+      else y = CONFIG.ageAdult + (g - 240) / 40;
+      s.ageDays = y * CONFIG.daysPerYear;
+    }
+    if (!s.wallpaper) s.wallpaper = "bliss";
+    if (s.species !== "cat" && s.species !== "dog") {
+      s.species = (s.gender === "girl") ? "cat" : "dog";
+    }
+    if (s.gender !== "girl") s.gender = "boy";
+    if (s.needs.mood == null) s.needs.mood = s.needs.comfort || s.needs.fun || s.needs.company || 70;
+    if (s.needs.clean == null) s.needs.clean = 80;
+    if (s.needs.health == null) s.needs.health = 90;
+    if (s.needs.energy == null) s.needs.energy = 80;
+    if (s.bond == null) s.bond = 6;
+    if (!s.poops) s.poops = [];
+    if (s.wordsTotal == null) s.wordsTotal = s.typedOk || 0;
+    s.version = CONFIG.SAVE_VERSION;
+    return s;
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(CONFIG.SAVE_KEY);
+      if (!raw) return defaultState();
+      return migrate(JSON.parse(raw));
+    } catch (e) { return defaultState(); }
+  }
+  function save() {
+    try {
+      var blob = JSON.stringify(S);
+      localStorage.setItem(CONFIG.SAVE_KEY, blob);
+      localStorage.setItem(CONFIG.SAVE_KEY + ".bak", blob);
+    } catch (e) {}
+  }
+  function needsFor(stage) {
+    return ["hunger", "clean", "mood", "health", "energy"];
+  }
+  function nget(k) { return Number(S.needs[k] || 0); }
+  function nadd(k, v) { S.needs[k] = clamp(nget(k) + v, 0, 100); }
+  function speak(key) {
+    var arr = SAY[key] || SAY.happy;
+    var msg = arr[Math.floor(Math.random() * arr.length)];
+    var el = $("say");
+    if (!el) return;
+    el.textContent = msg;
+    el.style.display = "block";
+    sayT = CONFIG.sayEvery;
+  }
+  function hideSay() { var el = $("say"); if (el) el.style.display = "none"; }
+  function pooSvg() {
+    return '<svg viewBox="0 0 30 26" width="30" height="26"><ellipse cx="15" cy="20" rx="11" ry="5" fill="#6b3a18"/><circle cx="15" cy="14" r="8" fill="#8a4a22"/><circle cx="15" cy="8" r="5" fill="#a05a28"/><circle cx="17" cy="6" r="1.4" fill="#fff" opacity=".5"/></svg>';
+  }
+  function renderPoops() {
+    var box = $("poops");
+    if (!box) return;
+    box.textContent = "";
+    (S.poops || []).forEach(function (p, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "poop";
+      b.style.left = (p.x || (10 + i * 18)) + "%";
+      b.innerHTML = pooSvg();
+      b.title = "清理便便";
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();
+        S.poops.splice(i, 1);
+        nadd("clean", 20);
+        nadd("mood", 6);
+        S.bond = clamp((S.bond || 0) + 1.5, 0, 100);
+        bounce();
+        speak("happy");
+        toast("清理了便便 · 清洁+ 亲密度+");
+        renderPoops(); render(); save();
+      });
+      box.appendChild(b);
+    });
+  }
+  function spawnPoo() {
+    if (!S.poops) S.poops = [];
+    if (S.poops.length >= CONFIG.maxPoo || S.sleeping) return;
+    S.poops.push({ x: 8 + Math.random() * 55 });
+    nadd("clean", -12);
+    speak("poo");
+    toast("地上出现了便便，点它清掉");
+    renderPoops();
+  }
+  function statusText() {
+    if (S.sleeping) return "睡着了 · 点它叫醒";
+    if (S.sick) return "生病中 · 去商店买药";
+    if ((S.poops || []).length) return "地上有便便 · 点便便清掉";
+    if (nget("hunger") < 28) return "饿了";
+    if (nget("energy") < 22) return "困了，该睡觉";
+    if (nget("mood") < 28) return "想玩猜拳";
+    return "亲密度 " + Math.floor(S.bond || 0);
+  }
+  function openShop() {
+    var box = $("shopOpts");
+    box.textContent = "";
+    SHOP.forEach(function (it) {
+      var c = (it.cost[S.stage] != null) ? it.cost[S.stage] : 6;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = it.name + "（" + c + " 金）· " + it.desc;
+      b.addEventListener("click", function () {
+        if (S.coins < c) { toast("金币不够，去打字挣钱"); return; }
+        S.coins -= c;
+        if (it.hunger) nadd("hunger", it.hunger);
+        if (it.mood) nadd("mood", it.mood);
+        if (it.health) { nadd("health", it.health); if (nget("health") > 50) S.sick = false; }
+        if (it.bond) S.bond = clamp((S.bond || 0) + it.bond, 0, 100);
+        if (it.id === "cookie" || it.id === "meal") { S.digest = 12 + Math.random() * 10; speak("eat"); }
+        if (it.id === "med") speak("happy");
+        addDays(0.05);
+        toast("买了" + it.name);
+        $("shopModal").classList.remove("open");
+        bounce(); render(); save();
+      });
+      box.appendChild(b);
+    });
+    $("shopModal").classList.add("open");
+  }
+  function openPlay(mode) {
+    $("playResult").textContent = "";
+    if (mode === "bath") {
+      $("playTitle").textContent = "洗澡";
+      $("playBody").textContent = "点破泡泡，洗干净。";
+      $("rps").style.display = "none";
+      var box = $("bathBox");
+      box.hidden = false;
+      box.textContent = "";
+      bathLeft = 6;
+      for (var i = 0; i < 6; i++) {
+        var bu = document.createElement("button");
+        bu.type = "button";
+        bu.className = "bubble";
+        var sz = 28 + Math.random() * 28;
+        bu.style.width = bu.style.height = sz + "px";
+        bu.style.left = (6 + Math.random() * 78) + "%";
+        bu.style.top = (8 + Math.random() * 62) + "%";
+        bu.addEventListener("click", function (ev) {
+          ev.stopPropagation();
+          ev.currentTarget.remove();
+          bathLeft -= 1;
+          if (bathLeft <= 0) {
+            nadd("clean", 42);
+            nadd("mood", 12);
+            S.bond = clamp((S.bond || 0) + 4, 0, 100);
+            S.sick = S.sick && nget("health") < 40;
+            speak("bath");
+            toast("洗完澡啦 · 清洁+");
+            $("playModal").classList.remove("open");
+            bounce(); render(); save();
+          }
+        });
+        box.appendChild(bu);
+      }
+    } else {
+      $("playTitle").textContent = "猜拳";
+      $("playBody").textContent = "石头剪刀布。赢了有金币和心情。";
+      $("rps").style.display = "flex";
+      $("bathBox").hidden = true;
+    }
+    $("playModal").classList.add("open");
+  }
+  function doRps(mine) {
+    if (S.sleeping) { toast("先叫醒它"); return; }
+    if (S.sick) { toast("生病了，先吃药"); return; }
+    var pet = Math.floor(Math.random() * 3);
+    var names = ["石头", "剪刀", "布"];
+    var diff = (mine - pet + 3) % 3;
+    var pay = S.stage === "child" ? 4 : S.stage === "teen" ? 8 : 10;
+    if (diff === 0) {
+      $("playResult").textContent = "都出了" + names[mine] + "，平手，再来！";
+    } else if (diff === 1) {
+      nadd("mood", -6);
+      $("playResult").textContent = "它出" + names[pet] + "，你输了。心情-";
+      speak("bored");
+    } else {
+      S.coins += pay;
+      nadd("mood", 18);
+      S.bond = clamp((S.bond || 0) + 3, 0, 100);
+      addDays(0.15);
+      $("playResult").textContent = "它出" + names[pet] + "，你赢了！+" + pay + " 金";
+      speak("happy");
+      bounce();
+    }
+    render(); save();
+  }
+  function setSleep(on) {
+    S.sleeping = !!on;
+    if (on) { speak("sleep"); toast("它睡着了。点它或按叫醒。"); }
+    else { speak("wake"); toast("醒了！"); }
+    render(); save();
+  }
+  function toast(msg) {
+    var el = $("toast");
+    el.textContent = msg;
+    el.style.display = "block";
+    toastT = 2.5;
+  }
+  function showStagePop(st) {
+    var el = $("stagePop");
+    var map = {
+      teen: "它开始要零花钱了。打字按工资结算，也会继续加快天数。",
+      adult: "它长大了。吃喝退居二线，钱和陪伴变成主线。可以出门面对事件卡。"
+    };
+    el.textContent = "";
+    var h = document.createElement("h3");
+    h.textContent = "阶段：" + STAGE_LABEL[st];
+    var p = document.createElement("p");
+    p.textContent = map[st] || "";
+    el.appendChild(h); el.appendChild(p);
+    el.style.display = "block";
+    setTimeout(function () { el.style.display = "none"; }, 3200);
+    toast("成长提示：进入「" + STAGE_LABEL[st] + "」");
+  }
+  function setStage(next) {
+    if (next === S.stage) return;
+    S.stage = next;
+    showStagePop(next);
+  }
+  function maybeStage() {
+    var n = stageByAge(ageYears());
+    if (n !== S.stage) setStage(n);
+  }
+  function addDays(n) {
+    S.ageDays = Number(S.ageDays || 0) + Number(n || 0);
+    maybeStage();
+  }
+
+
+
+  function petSvg(mood, stage) {
+    var st = stage || "child";
+    var cat = (S.species || "") === "cat" || S.gender === "girl";
+    var fur = cat ? "#ef9a4c" : "#e8b56a";
+    var furD = cat ? "#c56e28" : "#c49240";
+    var furL = cat ? "#f8c48a" : "#f4d7a4";
+    var belly = cat ? "#fbe2c4" : "#f7ead0";
+    var earIn = cat ? "#f4b4bc" : "#e8a090";
+    var noseC = cat ? "#e88a9a" : "#2a1810";
+    var iris = cat ? "#6db36a" : "#6b3d1c";
+    var line = cat ? "#b86830" : "#a87838";
+    var pad = cat ? "#e8a0a8" : "#d09070";
+    var yOff = st === "child" ? 8 : st === "teen" ? 2 : 0;
+    var headR = st === "child" ? 54 : st === "teen" ? 50 : 48;
+    var bodyRx = st === "child" ? 46 : st === "teen" ? 52 : 56;
+    var bodyRy = st === "child" ? 34 : st === "teen" ? 36 : 38;
+    var brow, eyes, mouth, extra = "";
+    function eyePair(open) {
+      if (mood === "happy" || mood === "sleep" || (S.sleeping && mood !== "sad")) {
+        return '<path d="M70 96 Q84 106 96 96" fill="none" stroke="#3a2010" stroke-width="3.2" stroke-linecap="round"/>' +
+               '<path d="M108 96 Q122 106 134 96" fill="none" stroke="#3a2010" stroke-width="3.2" stroke-linecap="round"/>';
+      }
+      if (mood === "sad") {
+        return eye(82, 100, 0.82) + eye(122, 100, 0.82) +
+               '<path d="M68 88 Q82 84 96 90" fill="none" stroke="#5a3318" stroke-width="2" stroke-linecap="round"/>' +
+               '<path d="M108 90 Q122 84 136 88" fill="none" stroke="#5a3318" stroke-width="2" stroke-linecap="round"/>';
+      }
+      var sc = mood === "hungry" ? 1.08 : 1;
+      return eye(82, 96, sc) + eye(122, 96, sc);
+    }
+    function eye(cx, cy, sc) {
+      return '<g transform="translate(' + cx + ' ' + cy + ') scale(' + sc + ')">' +
+        '<ellipse cx="0" cy="0" rx="14" ry="16" fill="#fff" stroke="' + line + '" stroke-width="1"/>' +
+        '<ellipse cx="1" cy="2" rx="8" ry="10" fill="' + iris + '"/>' +
+        '<ellipse cx="1" cy="3" rx="4.5" ry="6" fill="#1a1008"/>' +
+        '<ellipse cx="4" cy="-4" rx="4" ry="5" fill="#fff"/>' +
+        '<ellipse cx="-3" cy="4" rx="1.6" ry="2" fill="#fff" opacity=".7"/>' +
+        '</g>';
+    }
+    if (mood === "happy") {
+      mouth = '<path d="M92 124 Q102 134 112 124" fill="#e07a7a"/>';
+      extra = '<path d="M30 72 l4 9 9-3-9 3 4 9-4-9-9 3 9-3z" fill="#ffe566"/>';
+    } else if (mood === "sad") {
+      mouth = '<path d="M94 130 Q102 124 110 130" fill="none" stroke="#c07070" stroke-width="2.2" stroke-linecap="round"/>';
+      extra = '<path d="M64 112 c0 8 -6 12 -6 18" fill="none" stroke="#7ec8ee" stroke-width="3" stroke-linecap="round"/><circle cx="58" cy="132" r="3" fill="#7ec8ee"/>';
+    } else if (mood === "hungry") {
+      mouth = '<ellipse cx="102" cy="128" rx="8" ry="7" fill="#3a2010"/><ellipse cx="102" cy="129" rx="4" ry="3" fill="#e07a7a"/>';
+    } else {
+      mouth = cat
+        ? '<path d="M98 124 L102 128 L106 124" fill="none" stroke="#c07070" stroke-width="1.8" stroke-linecap="round"/>' +
+          '<path d="M102 128 Q92 132 88 128" fill="none" stroke="#c07070" stroke-width="1.4"/><path d="M102 128 Q112 132 116 128" fill="none" stroke="#c07070" stroke-width="1.4"/>'
+        : '<ellipse cx="102" cy="126" rx="7" ry="4" fill="#c07070" opacity=".35"/><path d="M94 124 Q102 130 110 124" fill="none" stroke="#a05040" stroke-width="2" stroke-linecap="round"/>';
+    }
+    eyes = eyePair(true);
+    var ears, head, body, paws, tail, face, acc = "";
+    if (cat) {
+      ears = '<path d="M58 70 L48 28 L86 62Z" fill="' + fur + '" stroke="' + line + '" stroke-width="1.2"/>' +
+             '<path d="M62 64 L54 38 L80 60Z" fill="' + earIn + '"/>' +
+             '<path d="M146 70 L156 28 L118 62Z" fill="' + fur + '" stroke="' + line + '" stroke-width="1.2"/>' +
+             '<path d="M142 64 L150 38 L124 60Z" fill="' + earIn + '"/>';
+      tail = '<path d="M148 168 C176 150 178 110 158 96 C170 124 164 154 142 168" fill="' + fur + '" stroke="' + line + '" stroke-width="1"/>' +
+             '<path d="M160 120 q8 -6 6 4" fill="none" stroke="' + furD + '" stroke-width="3"/>' +
+             '<path d="M166 136 q6 -4 4 3" fill="none" stroke="' + furD + '" stroke-width="3"/>';
+      acc = '<path d="M56 118 L28 112" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>' +
+            '<path d="M56 124 L26 124" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>' +
+            '<path d="M58 130 L30 136" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>' +
+            '<path d="M148 118 L176 112" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>' +
+            '<path d="M148 124 L178 124" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>' +
+            '<path d="M146 130 L174 136" stroke="#5a3a28" stroke-width="1.3" stroke-linecap="round"/>';
+    } else {
+      ears = '<ellipse cx="58" cy="78" rx="18" ry="26" fill="' + furD + '" transform="rotate(-28 58 78)"/>' +
+             '<ellipse cx="58" cy="80" rx="10" ry="16" fill="' + earIn + '" transform="rotate(-28 58 78)"/>' +
+             '<ellipse cx="146" cy="78" rx="18" ry="26" fill="' + fur + '" transform="rotate(28 146 78)"/>' +
+             '<ellipse cx="146" cy="80" rx="10" ry="16" fill="' + earIn + '" transform="rotate(28 146 78)"/>';
+      tail = '<path d="M148 170 C176 178 184 150 168 136 C180 160 168 176 140 168" fill="' + fur + '" stroke="' + line + '" stroke-width="1"/>';
+      acc = '<circle cx="102" cy="168" r="5" fill="#e8c45a" stroke="#c9a030" stroke-width="1"/>';
+    }
+    body = '<ellipse cx="102" cy="168" rx="' + bodyRx + '" ry="' + bodyRy + '" fill="' + fur + '" stroke="' + line + '" stroke-width="1.2"/>' +
+           '<ellipse cx="102" cy="176" rx="' + (bodyRx * 0.62) + '" ry="' + (bodyRy * 0.55) + '" fill="' + belly + '"/>';
+    paws = '<ellipse cx="74" cy="198" rx="14" ry="9" fill="' + fur + '" stroke="' + line + '" stroke-width="1"/>' +
+           '<ellipse cx="130" cy="198" rx="14" ry="9" fill="' + fur + '" stroke="' + line + '" stroke-width="1"/>' +
+           '<ellipse cx="74" cy="200" rx="7" ry="4" fill="' + pad + '" opacity=".8"/>' +
+           '<ellipse cx="130" cy="200" rx="7" ry="4" fill="' + pad + '" opacity=".8"/>';
+    head = '<ellipse cx="102" cy="96" rx="' + headR + '" ry="' + (headR + 2) + '" fill="' + fur + '" stroke="' + line + '" stroke-width="1.3"/>' +
+           '<ellipse cx="88" cy="88" rx="16" ry="12" fill="#fff" opacity=".2"/>';
+    var snout = cat
+      ? '<ellipse cx="102" cy="118" rx="16" ry="10" fill="' + belly + '"/>' +
+        '<ellipse cx="102" cy="116" rx="5" ry="4" fill="' + noseC + '"/>'
+      : '<ellipse cx="102" cy="118" rx="22" ry="14" fill="' + belly + '"/>' +
+        '<ellipse cx="102" cy="114" rx="8" ry="6" fill="' + noseC + '"/>' +
+        '<ellipse cx="100" cy="112" rx="2" ry="1.4" fill="#fff" opacity=".5"/>';
+    var blush = '<ellipse cx="68" cy="114" rx="11" ry="7" fill="#f29aa0" opacity="' + (cat ? ".4" : ".28") + '"/>' +
+                '<ellipse cx="136" cy="114" rx="11" ry="7" fill="#f29aa0" opacity="' + (cat ? ".4" : ".28") + '"/>';
+    var collar = '<path d="M70 142 Q102 154 134 142" fill="none" stroke="' + (cat ? "#7ec8e8" : "#d94c4c") + '" stroke-width="6" stroke-linecap="round"/>' +
+                 '<circle cx="102" cy="150" r="6" fill="#f0d060" stroke="#c9a020" stroke-width="1"/>';
+    var stageRing = '<ellipse cx="102" cy="214" rx="62" ry="10" fill="#8ebbe0" opacity=".32"/>' +
+                    '<ellipse cx="102" cy="210" rx="50" ry="8" fill="#d7ebf8" opacity=".8"/>';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 230" width="176" height="202">' +
+      stageRing + '<g transform="translate(0 ' + yOff + ')">' +
+      tail + body + paws + ears + head + blush + eyes + snout + mouth + collar + acc + extra +
+      '</g></svg>';
+  }
+
+  function moodOf() {
+    var keys = needsFor(S.stage);
+    var min = 100;
+    keys.forEach(function (k) { min = Math.min(min, S.needs[k]); });
+    if (S.sleeping) return "happy";
+    if (S.sick) return "sad";
+    if (min < CONFIG.needCrit) return "sad";
+    if (S.needs.hunger < CONFIG.needLow) return "hungry";
+    if ((S.poops || []).length >= 2) return "sad";
+    if (min > 70) return "happy";
+    return "ok";
+  }
+  function renderNeeds() {
+    var box = $("needs");
+    box.textContent = "";
+    needsFor(S.stage).forEach(function (k) {
+      var v = S.needs[k];
+      var cls = v < CONFIG.needCrit ? "crit" : v < CONFIG.needLow ? "low" : "";
+      var row = document.createElement("div");
+      row.className = "need-row";
+      var lab = document.createElement("span");
+      lab.textContent = NEED_LABEL[k];
+      var bar = document.createElement("div");
+      bar.className = "bar " + cls;
+      var i = document.createElement("i");
+      i.style.width = v + "%";
+      bar.appendChild(i);
+      row.appendChild(lab); row.appendChild(bar);
+      box.appendChild(row);
+    });
+  }
+  function renderAge() {
+    var y = yearInt();
+    var d = dayInYear();
+    var pct = ((S.ageDays % CONFIG.daysPerYear) / CONFIG.daysPerYear) * 100;
+    $("ageText").textContent = y + "岁 · 已过 " + Number(S.ageDays).toFixed(1) + " 天 · 本年 " + (Number(S.ageDays) % CONFIG.daysPerYear).toFixed(1) + "/" + CONFIG.daysPerYear;
+    $("ageChip").textContent = y + "岁";
+    var next = S.stage === "child" ? ("少年 " + CONFIG.ageTeen + "岁") : S.stage === "teen" ? ("成年 " + CONFIG.ageAdult + "岁") : "已成年";
+    $("ageNext").textContent = next;
+    $("ageBarI").style.width = pct + "%";
+  }
+  function renderActs() {
+    var box = $("acts");
+    box.textContent = "";
+    var btns;
+    btns = [
+      ["喂食", "hunger"],
+      ["洗澡", "bath"],
+      [S.sleeping ? "叫醒" : "睡觉", "sleep"],
+      ["猜拳", "play"],
+      ["商店", "shop"],
+      ["吃药", "med"]
+    ];
+    if (S.stage === "adult") btns.push(["出门（事件）", "event"]);
+    btns.forEach(function (pair) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = pair[0];
+      if (pair[1] === "event") b.className = "hi";
+      b.addEventListener("click", function () { onAct(pair[1]); });
+      box.appendChild(b);
+    });
+  }
+  function costOf(need) {
+    var c = CONFIG.costs[need];
+    if (!c) return 0;
+    return c[S.stage] || 0;
+  }
+  function bounce() {
+    var p = $("pet");
+    p.classList.remove("bounce");
+    void p.offsetWidth;
+    p.classList.add("bounce");
+  }
+  function onAct(key) {
+    if (key === "event") { openEvent(); return; }
+    if (key === "shop") { openShop(); return; }
+    if (key === "play") { openPlay("rps"); return; }
+    if (key === "bath") { if (S.sleeping) { toast("先叫醒"); return; } openPlay("bath"); return; }
+    if (key === "sleep") { setSleep(!S.sleeping); return; }
+    if (key === "med") {
+      var c = S.stage === "child" ? 6 : 10;
+      if (S.coins < c) { toast("药要 " + c + " 金，去背单词或猜拳"); return; }
+      S.coins -= c;
+      nadd("health", 55);
+      S.sick = false;
+      speak("happy");
+      toast("吃了药 · 健康+");
+      bounce(); render(); save();
+      return;
+    }
+    if (S.sleeping) { toast("它在睡觉。先叫醒。"); return; }
+    var cost = costOf(key);
+    if (S.coins < cost) { toast("金币不够（需要 " + cost + "）"); return; }
+    S.coins -= cost;
+    var gain = CONFIG.care[key] || 24;
+    nadd(key, gain);
+    if (key === "hunger") { S.digest = 10 + Math.random() * 12; speak("eat"); }
+    addDays(CONFIG.careDays);
+    bounce();
+    toast(NEED_LABEL[key] + " +" + Math.round(gain) + (cost ? "（-" + cost + "金）" : ""));
+    render(); save();
+  }
+  function pickWord(offset) {
+    S.wordIndex = (S.wordIndex + (offset || 1) + WORDS.length) % WORDS.length;
+    wordObj = WORDS[S.wordIndex];
+    seedSheet();
+    placeTerm();
+    paintMailTerm();
+    paintWord();
+    if (boss && S.bossSkin === "excel") paintXl();
+    if (boss && S.bossSkin === "mail") {
+      paintMailTerm();
+      if (!$("gmRead").classList.contains("open")) renderMailList();
+    }
+  }
+  function flipCard() {
+    var zh = $("wordZh");
+    var hint = $("cardHint");
+    if (!zh) return;
+    zh.hidden = false;
+    if (hint) hint.style.display = "none";
+  }
+  function paintWord() {
+    if ($("wordEn")) $("wordEn").textContent = wordObj[0];
+    if ($("wordZh")) { $("wordZh").textContent = wordObj[1]; $("wordZh").hidden = true; }
+    if ($("cardHint")) $("cardHint").style.display = "";
+    if ($("wordCount")) $("wordCount").textContent = "已背 " + (S.wordsTotal || 0) + " 词";
+    if ($("bossSearch")) $("bossSearch").placeholder = S.bossSkin === "mail" ? "搜索邮件" : "搜索";
+  }
+  function reviewWord(knew) {
+    if (!S.started) return false;
+    S.wordsTotal = (S.wordsTotal || 0) + 1;
+    if (knew) S.typedOk += 1;
+    else S.typedBad += 1;
+    var days = CONFIG.wordDays || CONFIG.typeDays;
+    addDays(days);
+    var care = (CONFIG.wordCare && (knew ? CONFIG.wordCare.know : CONFIG.wordCare.forget)) || {};
+    Object.keys(care).forEach(function (k) { nadd(k, care[k]); });
+    S.bond = clamp((S.bond || 0) + (knew ? (CONFIG.wordBond || 1) : 0.4), 0, 100);
+    var pay = 0;
+    if (knew && S.stage !== "child") {
+      pay = CONFIG.knowGold || 8;
+      S.coins += pay;
+      nadd("wealth", 4);
+    }
+    if (S.sheet) {
+      S.sheet["E" + S.xlRow] = wordObj[0];
+      S.sheet["F" + S.xlRow] = wordObj[1];
+      S.sheet["H" + S.xlRow] = knew ? "认识" : "再看";
+      S.xlRow = Math.min(XL_ROWS, S.xlRow + 1);
+    }
+    var pair = wordObj[0] + " = " + wordObj[1];
+    if (knew) {
+      toast(S.stage === "child"
+        ? ("认识 · 状态回升 · 已背 " + S.wordsTotal)
+        : ("认识 · +" + pay + " 金 · 状态回升 · 已背 " + S.wordsTotal));
+    } else {
+      toast("不认识 · " + pair + " · 仍计 1 词 · 状态小回");
+    }
+    pickWord(1 + Math.floor(Math.random() * 7));
+    render(); save();
+    return true;
+  }
+  function submitWord(val) {
+    return reviewWord(true);
+  }
+  function openEvent() {
+    if (S.stage !== "adult") { toast("成年后才会真正出门。"); return; }
+    var ev = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+    $("evtTitle").textContent = ev.title;
+    $("evtBody").textContent = ev.body;
+    var box = $("evtOpts");
+    box.textContent = "";
+    ev.options.forEach(function (op) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = op.t;
+      b.addEventListener("click", function () {
+        if (S.coins < op.cost) { toast("金币不够"); return; }
+        S.coins -= op.cost;
+        ["company", "wealth", "comfort", "fun", "hunger", "mood"].forEach(function (k) {
+          if (typeof op[k] === "number") S.needs[k] = clamp((S.needs[k] || 50) + op[k], 0, 100);
+        });
+        if (op.company) nadd("mood", op.company * 0.5);
+        addDays(0.4);
+        $("eventModal").classList.remove("open");
+        toast(op.msg);
+        render(); save();
+      });
+      box.appendChild(b);
+    });
+    var c = document.createElement("button");
+    c.type = "button";
+    c.textContent = "先不上";
+    c.addEventListener("click", function () { $("eventModal").classList.remove("open"); });
+    box.appendChild(c);
+    $("eventModal").classList.add("open");
+  }
+  function cellKey(c, r) { return colL(c) + (r + 1); }
+  function getCell(k) { return (S.sheet && S.sheet[k]) || ""; }
+  function setCell(k, v) {
+    seedSheet();
+    S.sheet[k] = v;
+  }
+  function parseSel(k) {
+    var m = /^([A-H])(\d+)$/.exec(k || "");
+    if (!m) return { c: 4, r: 1 };
+    return { c: m[1].charCodeAt(0) - 65, r: parseInt(m[2], 10) - 1 };
+  }
+  function paintXl() {
+    seedSheet();
+    var t = $("xlTable");
+    t.textContent = "";
+    var head = document.createElement("tr");
+    var corner = document.createElement("th");
+    corner.className = "rowh";
+    head.appendChild(corner);
+    for (var c = 0; c < XL_COLS; c++) {
+      var th = document.createElement("th");
+      th.textContent = colL(c);
+      head.appendChild(th);
+    }
+    t.appendChild(head);
+    for (var r = 0; r < XL_ROWS; r++) {
+      var tr = document.createElement("tr");
+      if (r === 0) tr.className = "head";
+      var rh = document.createElement("th");
+      rh.className = "rowh";
+      rh.textContent = String(r + 1);
+      tr.appendChild(rh);
+      for (var c2 = 0; c2 < XL_COLS; c2++) {
+        var td = document.createElement("td");
+        var k = cellKey(c2, r);
+        td.dataset.k = k;
+        td.textContent = getCell(k);
+        if (k === S.xlSel) td.classList.add("sel");
+        if (k === "E" + S.xlRow) td.classList.add("goal");
+        td.contentEditable = "true";
+        td.spellcheck = false;
+        tr.appendChild(td);
+      }
+      t.appendChild(tr);
+    }
+    $("fxName").value = S.xlSel;
+    if (!xlEditing) $("fxInput").value = getCell(S.xlSel);
+    $("xlStat").textContent = "就绪  ·  求和  ·  平均  ·  计数 " + Object.keys(S.sheet).length;
+  }
+  function selectCell(k) {
+    S.xlSel = k;
+    $("fxName").value = k;
+    $("fxInput").value = getCell(k);
+    var tds = $("xlTable").querySelectorAll("td");
+    for (var i = 0; i < tds.length; i++) {
+      tds[i].classList.toggle("sel", tds[i].dataset.k === k);
+    }
+  }
+  function isGoalCell(k) { return k === "E" + S.xlRow; }
+  function commitFx() {
+    var v = $("fxInput").value;
+    setCell(S.xlSel, v);
+    var td = $("xlTable").querySelector('td[data-k="' + S.xlSel + '"]');
+    if (td) td.textContent = v;
+    if (isGoalCell(S.xlSel)) reviewWord(true);
+    else save();
+    var p = parseSel(S.xlSel);
+    var nk = cellKey(p.c, Math.min(XL_ROWS - 1, p.r + 1));
+    selectCell(nk);
+    $("fxInput").focus();
+  }
+  function renderMailList() {
+    seedMails();
+    paintMailTerm();
+    var box = $("gmList");
+    box.textContent = "";
+    S.mails.forEach(function (m, idx) {
+      var row = document.createElement("div");
+      row.className = "gm-row" + (m.unread ? " unread" : "");
+      row.innerHTML = "";
+      var st = document.createElement("span"); st.textContent = m.unread ? "●" : "○";
+      var fr = document.createElement("span"); fr.className = "from"; fr.textContent = m.from;
+      var su = document.createElement("span"); su.className = "subj"; su.textContent = m.sub;
+      var wh = document.createElement("span"); wh.className = "when"; wh.textContent = m.when;
+      row.appendChild(st); row.appendChild(fr); row.appendChild(su); row.appendChild(wh);
+      row.addEventListener("click", function () { openMail(idx); });
+      box.appendChild(row);
+    });
+  }
+  var openMailIdx = 0;
+  function openMail(idx) {
+    openMailIdx = idx;
+    var m = S.mails[idx];
+    m.unread = false;
+    $("gmList").classList.add("hide");
+    $("gmRead").classList.add("open");
+    $("gmSub").textContent = m.sub;
+    $("gmMeta").textContent = m.from + "  ·  至 我";
+    $("gmBody").textContent = m.body;
+    $("gmReply").value = "";
+    $("gmReply").focus();
+  }
+  function renderBossChrome() {
+    var skin = S.bossSkin;
+    $("boss").className = "open skin-" + skin;
+    var files = {
+      excel: "Q3_经销商跟进_最终版.xlsx",
+      mail: "收件箱 (2) - 邮件",
+      code: "followup.ts — workspace"
+    };
+    $("bossFile").textContent = files[skin] || files.excel;
+    document.title = files[skin] || files.excel;
+    document.querySelectorAll(".boss-tb [data-skin]").forEach(function (b) {
+      b.classList.toggle("on", b.getAttribute("data-skin") === skin);
+    });
+    if (skin === "excel") paintXl();
+    if (skin === "mail") renderMailList();
+    if (skin === "code") {
+      if (!$("codeEdit").value) {
+        $("codeEdit").value = S.codeText || (
+          "// followup.ts — 本地草稿，可直接改\n" +
+          "export type Row = { region: string; account: string; term: string };\n\n" +
+          "export function nextAction(row: Row) {\n" +
+          "  const term = \"" + wordObj[0] + "\"; // 标准术语\n" +
+          "  if (!row.term) return { ...row, term };\n" +
+          "  return row;\n" +
+          "}\n\n" +
+          "// TODO: 把 term 校对完再提交\n"
+        );
+      }
+    }
+    $("bossSearch").placeholder = skin === "mail" ? "搜索邮件" : skin === "code" ? "搜索文件" : "搜索";
+  }
+  function setBoss(on, skin) {
+    boss = on;
+    if (skin) S.bossSkin = skin;
+    document.body.classList.toggle("boss", on);
+    $("boss").classList.toggle("open", on);
+    if (on) {
+      seedSheet(); seedMails();
+      renderBossChrome();
+      if (S.bossSkin === "excel") setTimeout(function () { $("fxInput").focus(); }, 30);
+    } else {
+      document.title = "Q3_经销商跟进_最终版.xlsx";
+    }
+  }
+  function render() {
+    $("petNameHud").textContent = S.petName;
+    $("stageHud").textContent = STAGE_LABEL[S.stage];
+    $("coinHud").textContent = "金币 " + Math.floor(S.coins) + " · 亲 " + Math.floor(S.bond || 0);
+    $("pet").innerHTML = petSvg(moodOf(), S.stage);
+    $("pet").classList.toggle("sleep", !!S.sleeping);
+    $("pet").classList.toggle("sick", !!S.sick);
+    if ($("stLine")) $("stLine").textContent = statusText();
+    renderNeeds();
+    renderActs();
+    renderAge();
+    renderPoops();
+    $("panel").classList.toggle("hidden", !!S.collapsed);
+    $("typeBox").style.opacity = focused ? "1" : ".85";
+    $("focusHint").textContent = focused
+      ? "焦点在。点「认识 / 不认识」背词，按个数长大。"
+      : "点助手窗口一下，再背单词";
+    $("adTitle").textContent = S.petName + " · 桌面助手";
+  }
+  function step(dt) {
+    if (!S.started) return;
+    S.playSec += dt;
+    var dec = CONFIG.decay[S.stage];
+    var slp = S.sleeping ? 0.45 : 1;
+    Object.keys(dec).forEach(function (k) {
+      if (k === "energy" && S.sleeping) {
+        nadd("energy", 1.5 * dt);
+        return;
+      }
+      S.needs[k] = clamp(nget(k) - dec[k] * dt * slp, 0, 100);
+    });
+    if ((S.poops || []).length) nadd("clean", -0.12 * dt * S.poops.length);
+    if (nget("hunger") < 20 || nget("clean") < 18) nadd("health", -0.10 * dt);
+    else nadd("health", 0.08 * dt);
+    if (nget("health") < 18) S.sick = true;
+    if (nget("health") > 60) S.sick = false;
+    S.bond = clamp((S.bond || 0) - 0.03 * dt, 0, 100);
+    if (S.digest > 0) {
+      S.digest -= dt;
+      if (S.digest <= 0) { S.digest = 0; spawnPoo(); }
+    }
+    pooT -= dt;
+    if (pooT <= 0) {
+      pooT = CONFIG.pooEvery + Math.random() * 20;
+      if (nget("hunger") > 40 && Math.random() < 0.55) spawnPoo();
+    }
+    sayT -= dt;
+    if (sayT <= 0 && !S.sleeping) {
+      sayT = CONFIG.sayEvery + Math.random() * 6;
+      if (S.sick) speak("sick");
+      else if (nget("hunger") < 30) speak("hungry");
+      else if ((S.poops || []).length || nget("clean") < 30) speak("dirty");
+      else if (nget("energy") < 25) speak("sleep");
+      else if (nget("mood") < 35) speak("bored");
+      else speak("happy");
+    }
+    if (S.sleeping && sayT < 4) { /* keep zzz */ }
+    walkT += dt;
+    if (!S.sleeping && walkT > 3.2) {
+      walkT = 0;
+      var x = Math.round(-30 + Math.random() * 60);
+      if ($("petMover")) $("petMover").style.transform = "translateX(" + x + "px)";
+    }
+    var keys = needsFor(S.stage);
+    var ok = keys.every(function (k) { return nget(k) >= CONFIG.needOk; });
+    dayAcc += dt / CONFIG.secPerDay;
+    if (dayAcc >= 0.05) {
+      var add = dayAcc;
+      dayAcc = 0;
+      if (ok) addDays(add);
+      else addDays(add * 0.35);
+    }
+    if (!document.hidden) S.coins += (CONFIG.idleGoldPerSec[S.stage] || 0) * dt;
+    toastT -= dt;
+    if (toastT <= 0) $("toast").style.display = "none";
+    saveT += dt;
+    if (saveT > 4) { saveT = 0; save(); }
+  }
+  function loop(now) {
+    var dt = (now - lastTs) / 1000;
+    lastTs = now;
+    if (dt > CONFIG.DT_CAP) dt = CONFIG.DT_CAP;
+    acc += dt;
+    while (acc >= CONFIG.SIM_DT) {
+      step(CONFIG.SIM_DT);
+      acc -= CONFIG.SIM_DT;
+    }
+    if (S.started) {
+      $("coinHud").textContent = "金币 " + Math.floor(S.coins);
+      renderNeeds();
+      renderAge();
+    }
+    var d = new Date();
+    $("clock").textContent = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+    requestAnimationFrame(loop);
+  }
+  function startGame() {
+    var n = $("nameInput").value.trim() || "弹弹";
+    S.petName = n.slice(0, 12);
+    var sexBtn = document.querySelector("#startSex button.on");
+    var sp = sexBtn && sexBtn.getAttribute("data-sex");
+    S.species = (sp === "cat" || sp === "dog") ? sp : (S.species || "dog");
+    S.started = true;
+    document.body.classList.add("play");
+    $("startMask").style.display = "none";
+    pickWord(0);
+    render(); save();
+  }
+  function bind() {
+    $("petStage").addEventListener("click", function () {
+      if (S.collapsed) { S.collapsed = false; render(); return; }
+      if (S.sleeping) { setSleep(false); return; }
+      var now = performance.now() / 1000;
+      if (now - lastPat < CONFIG.patCD) return;
+      lastPat = now;
+      nadd("mood", 10);
+      S.bond = clamp((S.bond || 0) + 2, 0, 100);
+      bounce();
+      speak("pat");
+      toast("摸摸 · 心情+ 亲密度+");
+      render(); save();
+    });
+    $("btnMin").addEventListener("click", function (e) {
+      e.stopPropagation();
+      S.collapsed = true; render(); save();
+    });
+    $("btnClose").addEventListener("click", function (e) {
+      e.stopPropagation();
+      S.closeCount += 1;
+      nadd("mood", CONFIG.closeComfort);
+      bounce();
+      if (S.closeCount % 3 === 0) {
+        $("dock").style.display = "none";
+        toast("已关闭（4 秒后自动恢复）");
+        setTimeout(function () {
+          $("dock").style.display = "flex";
+          toast("助手还在。你关不掉的。");
+        }, 4000);
+      } else {
+        toast("关闭失败：该助手受工位惯例保护。已折算为安慰。");
+      }
+      render();
+    });
+    $("btnSkip").addEventListener("click", function () { pickWord(1 + Math.floor(Math.random() * 5)); });
+    $("wordCard").addEventListener("click", function () { flipCard(); });
+    $("btnKnow").addEventListener("click", function () { reviewWord(true); });
+    $("btnForget").addEventListener("click", function () { reviewWord(false); });
+    $("fxInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); commitFx(); }
+      if (e.key === "Tab") {
+        e.preventDefault();
+        var p = parseSel(S.xlSel);
+        selectCell(cellKey(Math.min(XL_COLS - 1, p.c + 1), p.r));
+        $("fxInput").focus();
+      }
+    });
+    $("fxInput").addEventListener("focus", function () { xlEditing = true; focused = true; });
+    $("fxInput").addEventListener("blur", function () {
+      xlEditing = false;
+      setCell(S.xlSel, $("fxInput").value);
+    });
+    $("xlTable").addEventListener("click", function (e) {
+      var td = e.target.closest("td");
+      if (!td) return;
+      selectCell(td.dataset.k);
+      $("fxInput").focus();
+    });
+    $("xlTable").addEventListener("input", function (e) {
+      var td = e.target.closest("td");
+      if (!td) return;
+      setCell(td.dataset.k, td.textContent);
+      if (td.dataset.k === S.xlSel) $("fxInput").value = td.textContent;
+    });
+    $("xlTable").addEventListener("keydown", function (e) {
+      var td = e.target.closest("td");
+      if (!td) return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        setCell(td.dataset.k, td.textContent);
+        if (isGoalCell(td.dataset.k)) reviewWord(true);
+        else save();
+        var p = parseSel(td.dataset.k);
+        var nk = cellKey(p.c, Math.min(XL_ROWS - 1, p.r + 1));
+        selectCell(nk);
+        var ntd = $("xlTable").querySelector('td[data-k="' + nk + '"]');
+        if (ntd) ntd.focus();
+      }
+    });
+    $("btnStart").addEventListener("click", startGame);
+    $("btnAboutClose").addEventListener("click", function () { $("aboutModal").classList.remove("open"); });
+    $("btnWallClose").addEventListener("click", function () { $("wallModal").classList.remove("open"); });
+    $("btnShopX").addEventListener("click", function () { $("shopModal").classList.remove("open"); });
+    $("btnPlayX").addEventListener("click", function () { $("playModal").classList.remove("open"); });
+    document.querySelectorAll("#rps [data-rps]").forEach(function (b) {
+      b.addEventListener("click", function () { doRps(parseInt(b.getAttribute("data-rps"), 10)); });
+    });
+    function setGender(g) {
+      S.species = g === "cat" ? "cat" : "dog";
+      document.querySelectorAll("[data-sex]").forEach(function (b) {
+        b.classList.toggle("on", b.getAttribute("data-sex") === S.species);
+      });
+      if ($("startPet")) $("startPet").innerHTML = petSvg("ok", S.started ? S.stage : "child");
+      if (S.started) { render(); save(); }
+    }
+    function openWall() {
+      $("startMenu").classList.remove("open");
+      $("wallModal").classList.add("open");
+      document.querySelectorAll(".wp-thumb").forEach(function (b) {
+        b.classList.toggle("on", b.getAttribute("data-wp") === (S.wallpaper || "bliss"));
+      });
+      document.querySelectorAll("#wallSex [data-sex]").forEach(function (b) {
+        b.classList.toggle("on", b.getAttribute("data-sex") === (S.species || "dog"));
+      });
+    }
+    function applyWallpaper() {
+      var id = S.wallpaper || "bliss";
+      document.body.setAttribute("data-wp", id);
+      var desk = $("desk");
+      if (id === "custom") {
+        var url = "";
+        try { url = localStorage.getItem(CONFIG.SAVE_KEY + ".wp") || ""; } catch (e) {}
+        desk.style.backgroundImage = url ? ("url(" + url + ")") : "";
+      } else {
+        desk.style.backgroundImage = "";
+      }
+    }
+    function ingestWp(file) {
+      if (!file) return;
+      var img = new Image();
+      var fr = new FileReader();
+      fr.onload = function () {
+        img.onload = function () {
+          var c = document.createElement("canvas");
+          var max = 1600, w = img.width, h = img.height;
+          if (w > max || h > max) {
+            var s = Math.min(max / w, max / h);
+            w = Math.round(w * s); h = Math.round(h * s);
+          }
+          c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          var data = c.toDataURL("image/jpeg", 0.72);
+          try {
+            localStorage.setItem(CONFIG.SAVE_KEY + ".wp", data);
+            S.wallpaper = "custom";
+            applyWallpaper(); save();
+            toast("已使用本机图片作壁纸");
+            $("wallModal").classList.remove("open");
+          } catch (err) {
+            toast("图片太大，换一张更小的试试");
+          }
+        };
+        img.onerror = function () { toast("读不了这张图"); };
+        img.src = fr.result;
+      };
+      fr.readAsDataURL(file);
+    }
+    $("start-btn").addEventListener("click", function (e) {
+      e.stopPropagation();
+      $("startMenu").classList.toggle("open");
+    });
+    document.querySelectorAll("#startMenu [data-sm]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-sm");
+        $("startMenu").classList.remove("open");
+        if (a === "about") $("aboutModal").classList.add("open");
+        else if (a === "wall") openWall();
+        else if (a === "assist") {
+          $("panel").classList.remove("hidden");
+          S.collapsed = false; save();
+        }
+      });
+    });
+    document.querySelectorAll(".wp-thumb").forEach(function (b) {
+      b.addEventListener("click", function () {
+        S.wallpaper = b.getAttribute("data-wp");
+        applyWallpaper(); save();
+        document.querySelectorAll(".wp-thumb").forEach(function (x) {
+          x.classList.toggle("on", x === b);
+        });
+      });
+    });
+    $("wpFile").addEventListener("change", function () {
+      ingestWp($("wpFile").files && $("wpFile").files[0]);
+      $("wpFile").value = "";
+    });
+    document.querySelectorAll("[data-sex]").forEach(function (b) {
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        setGender(b.getAttribute("data-sex"));
+      });
+    });
+    $("desk").addEventListener("contextmenu", function (e) {
+      if (boss) return;
+      var t = e.target;
+      if (t === $("desk") || t.id === "desk") {
+        e.preventDefault();
+        openWall();
+      }
+    });
+    document.addEventListener("click", function () { $("startMenu").classList.remove("open"); });
+    document.querySelectorAll(".d-ico").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "about") $("aboutModal").classList.add("open");
+        else if (a === "xls") setBoss(true, "excel");
+        else if (a === "mail") setBoss(true, "mail");
+        else if (a === "wall") openWall();
+        else if (a === "pc") toast("此电脑：本地磁盘（存档）正常");
+      });
+    });
+    document.querySelectorAll("[data-skin]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        S.bossSkin = b.getAttribute("data-skin");
+        renderBossChrome(); save();
+        if (S.bossSkin === "excel") $("fxInput").focus();
+      });
+    });
+    $("bossGhost").addEventListener("click", function () { setBoss(false); });
+    $("bossX").addEventListener("click", function () { setBoss(false); });
+    $("bossMin").addEventListener("click", function () { setBoss(false); });
+    $("gmCompose").addEventListener("click", function () { $("gmFloat").classList.add("open"); $("gmTo").focus(); });
+    $("gmFloatX").addEventListener("click", function () { $("gmFloat").classList.remove("open"); });
+    $("gmInboxBtn").addEventListener("click", function () {
+      $("gmList").classList.remove("hide");
+      $("gmRead").classList.remove("open");
+    });
+    $("gmSend").addEventListener("click", function () {
+      var v = $("gmReply").value;
+      var ok = reviewWord(true);
+      if (ok) {
+        $("gmReply").value = "";
+        $("gmList").classList.remove("hide");
+        $("gmRead").classList.remove("open");
+      }
+    });
+    $("gmReply").addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        $("gmSend").click();
+      }
+    });
+    $("gmSendNew").addEventListener("click", function () {
+      var v = ($("gmDraft").innerText || "").trim();
+      S.draft = { to: $("gmTo").value, subject: $("gmSubj").value, body: v };
+      reviewWord(true);
+      toast("已保存到本地草稿");
+      $("gmFloat").classList.remove("open");
+      save();
+    });
+    $("gmTo").addEventListener("input", function () { S.draft.to = $("gmTo").value; });
+    $("gmSubj").addEventListener("input", function () { S.draft.subject = $("gmSubj").value; });
+    $("gmDraft").addEventListener("input", function () { S.draft.body = $("gmDraft").innerText; });
+    $("codeEdit").addEventListener("input", function () { S.codeText = $("codeEdit").value; });
+    $("codeEdit").addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+        reviewWord(true);
+      }
+    });
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { e.preventDefault(); setBoss(!boss); return; }
+      if (!S.started) return;
+      var el = e.target;
+      var typing = el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable);
+      if (typing) return;
+      if (e.key === "1" || e.key === "j" || e.key === "J") { e.preventDefault(); reviewWord(true); }
+      else if (e.key === "2" || e.key === "k" || e.key === "K") { e.preventDefault(); reviewWord(false); }
+      else if (e.key === " ") { e.preventDefault(); flipCard(); }
+    });
+    window.addEventListener("focus", function () { focused = true; render(); });
+    window.addEventListener("blur", function () { focused = false; render(); });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) save();
+      focused = !document.hidden && document.hasFocus();
+    });
+    window.addEventListener("pagehide", save);
+    $("panel").addEventListener("pointerdown", function () { focused = true; });
+    applyWallpaper();
+  }
+  function boot() {
+    S = load();
+    seedSheet();
+    seedMails();
+    bind();
+    wordObj = WORDS[(S.wordIndex || 0) % WORDS.length];
+    placeTerm();
+    paintMailTerm();
+    paintWord();
+    if (S.started) {
+      document.body.classList.add("play");
+      $("startMask").style.display = "none";
+      $("nameInput").value = S.petName;
+      render();
+    } else {
+      $("pet").innerHTML = petSvg("ok", "child");
+      if ($("startPet")) $("startPet").innerHTML = petSvg("ok", "child");
+    }
+    var dl = $("dlLink");
+    if (dl) {
+      if (location.protocol === "file:") dl.style.display = "none";
+      dl.addEventListener("click", function (e) {
+        e.preventDefault();
+        var blob = new Blob(["<!DOCTYPE html>\n", document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "gongwei-pet.html";
+        document.body.appendChild(a);
+        a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      });
+    }
+    requestAnimationFrame(loop);
+  }
+  boot();
+})();
+</script>
+</body>
+</html>
